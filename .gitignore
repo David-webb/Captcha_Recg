@@ -1,0 +1,7 @@
+captcha/ 
+captcha_1-char/
+captcha_6-char/
+captcha_faster-rcnn_box_char/
+cnnforcaptcha/
+sougoucaptcha_templates/
+*.zip 
