@@ -1,7 +1,10 @@
 captcha/ 
 captcha_1-char/
+captcha_1-char_12w/
 captcha_6-char/
+captcha_6-char_test/
 captcha_faster-rcnn_box_char/
 cnnforcaptcha/
 sougoucaptcha_templates/
+
 *.zip 

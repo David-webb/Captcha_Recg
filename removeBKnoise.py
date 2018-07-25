@@ -5,12 +5,13 @@
 
 
 from PIL import Image
-import pytesseract
+# import pytesseract
 import cv2
 import numpy
 import Queue
 import os
 import math
+import copy
 
 class rmBKnoise():
     """
@@ -483,6 +484,7 @@ class rmcurselinewithscanning():
             
         pass
 
+
     def getcycles(self, blocklists, mode):
         """
             根据上边或下边相交的blocks确定周期T, 从而确定参数w(欧米伽)
@@ -653,16 +655,84 @@ class rmcurselinewithscanning():
         imgobj = self.tobinarypic(b_threshold=b_threshold)  # 这里的 b_threshold是二值化时的阈值,默认是100,
                                                                    # 这是根据微信搜狗验证码的特性(背景字母颜色淡)得到的
         self.rmeightNeibornoisepoint()      # 八邻域降噪
-        s_block = self.getstartblock(imgobj)
-        # self.s_blocks = s_block
-        # self.rowscan(s_block=s_block)
-        # if not self.rowscan(s_block=s_block):
-        # print s_block
-        self.colscan(s_block, imgobj)
-        # savename = self.fname.replace('.jpg', '_c.jpg')
+        # s_block = self.getstartblock(imgobj)
+        # # self.s_blocks = s_block
+        # # self.rowscan(s_block=s_block)
+        # # if not self.rowscan(s_block=s_block):
+        # # print s_block
+        # self.colscan(s_block, imgobj)
+        # # savename = self.fname.replace('.jpg', '_c.jpg')
         savename = self.imgpath + '_c.jpg'
         cv2.imwrite(savename, imgobj)
         pass
+
+class rmcurlinebycolor():
+
+    def getfrontground(self, imgobj):
+        """ 获取验证码图片的前景图中的字母和曲线 """
+        img1 = imgobj
+        # img2 = copy.deepcopy(img1)
+        rows, cols, channels = img1.shape
+        # img2 = numpy.zeros((rows, cols, 3), dtype=numpy.uint8)
+        # img2 = cv2.bitwise_not(img2)
+        roi = img1[0:rows, 0:cols]
+        # 灰度图、二值化、制作掩膜（mask_inv）
+        img2gray = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
+        ret, mask = cv2.threshold(img2gray, 100, 255, cv2.THRESH_BINARY)
+        mask_inv = cv2.bitwise_not(mask)
+        img1_bg = cv2.bitwise_and(roi, roi, mask=mask)
+        img2_fg = cv2.bitwise_and(roi, roi, mask=mask_inv)
+        # dst = cv2.add(img2_fg, img2)
+        # img1[0:rows, 0:cols] = dst
+        return img2_fg
+        # cv2.imshow('res', img2_fg)
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
+
+    def rmobjbycolor(self):
+        """ 对原始图片从像素值角度进行统计：设置阈值，直接对原图片进行操作，对于在指定阈值范围内的像素点进行抹除 """
+        files = os.listdir("sogoucapture/funcCruse")
+        abpath = os.path.abspath("sogoucapture/funcCruse")
+        rgbdict = {}
+        for f in files[0:1]:
+            print "start processing file %s......" % f
+            fname = os.path.join(abpath, f)
+            if not os.path.isdir(fname):
+                imgobj = cv2.imread(fname)
+                h, w = (44, 140)
+                imgobj = self.getfrontground(imgobj)
+                imgobj[imgobj==0] = 255
+                for r in range(0, h):
+                    for c in range(0, w):
+                        tkey = "_".join("{0}".format(n) for n in imgobj[r, c])
+                        if tkey == "255_255_255":
+                            continue
+                        if tkey in rgbdict.keys():
+                            rgbdict[tkey] += 1
+                        else:
+                            rgbdict[tkey] = 1
+                maxv = 0
+                maxk = ""
+                for k, v in rgbdict.items():
+                    print k, v
+                    if v > maxv:
+                        maxk = k
+                        maxv = v
+                    if v == 48:
+                        print k
+
+                vlist = [int(i) for i in maxk.split("_")]
+
+                for r in range(0, h):
+                    for c in range(0, w):
+                        # print vlist
+                        if list(imgobj[r, c]) == [165, 173, 166]:
+                            # print imgobj[r,c]
+                            imgobj[r, c] = [255, 255, 255]
+                            # print imgobj[r,c]
+                cv2.imwrite("%s_c.jpg" % fname, imgobj)
+            print "end processing file %s......\n" % f
+    pass
 
 if __name__ == '__main__':
     # p1 = Image.open('sogoucapture/0') #
@@ -684,54 +754,22 @@ if __name__ == '__main__':
 
 
     # 使用扫描算法实现曲线的清除
-    files = os.listdir("sogoucapture")  # /funcCruse
-    abpath = os.path.abspath("sogoucapture")  # /funcCruse
-    for f in files:
-        print "start processing file %s......" % f
-        fname = os.path.join(abpath, f)
-        if not os.path.isdir(fname):
-            tscanobj = rmcurselinewithscanning(fname)
-            tscanobj.run()
-        print "end processing file %s......\n" % f
-    pass
-
-
-    # 对原始图片从像素值角度进行统计
-    # files = os.listdir("sogoucapture/funcCruse")
-    # abpath = os.path.abspath("sogoucapture/funcCruse")
-    # rgbdict = {}
-    # for f in files[0:1]:
+    # files = os.listdir("sogoucapture")  # /funcCruse
+    # abpath = os.path.abspath("sogoucapture")  # /funcCruse
+    # for f in files:
     #     print "start processing file %s......" % f
     #     fname = os.path.join(abpath, f)
     #     if not os.path.isdir(fname):
-    #         imgobj = cv2.imread(fname)
-    #         h, w = (44, 140)
-    #         for r in range(0,h):
-    #             for c in range(0,w):
-    #                 tkey = "_".join("{0}".format(n) for n in imgobj[r,c])
-    #                 if tkey in rgbdict.keys():
-    #                     rgbdict[tkey] += 1
-    #                 else:
-    #                     rgbdict[tkey] = 1
-    #         maxv = 0
-    #         maxk = ""
-    #         for k, v in rgbdict.items():
-    #             print v
-    #             if v > maxv:
-    #                 maxk = k
-    #                 maxv = v
-    #             if v == 48:
-    #                 print k
-    #
-    #         vlist = [int(i) for i in maxk.split("_")]
-    #
-    #         for r in range(0, h):
-    #             for c in range(0, w):
-    #                 # print vlist
-    #                 if list(imgobj[r, c]) == [165,173,166]:
-    #                     # print imgobj[r,c]
-    #                     imgobj[r, c] = [255,255,255]
-    #                     # print imgobj[r,c]
-    #         cv2.imwrite("%s_c.jpg" % fname, imgobj)
+    #         tscanobj = rmcurselinewithscanning(fname)
+    #         tscanobj.run()
     #     print "end processing file %s......\n" % f
+    # pass
+
+
+    # 从颜色角度去除曲线
+    robj = rmcurlinebycolor()
+    robj.rmobjbycolor()
+
+
+
     pass

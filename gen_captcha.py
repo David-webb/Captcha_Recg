@@ -7,6 +7,8 @@ import string
 import json
 import math
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import cv2
+import copy
 
 class gencaptcha_cnn_98():
     # 验证码中的字符, 就不用汉字了
@@ -102,7 +104,7 @@ class gencapthca_test():
 
 
 class gencaptcha_final():
-    def __init__(self, mode, totalnum, savepath="./captcha_set1", rotate=False):
+    def __init__(self, mode, totalnum, savepath="./captcha_set1", rotate=False, rangle=45):
         self.source = list(string.letters)
         for index in range(0, 10):
             self.source.append(str(index))
@@ -129,6 +131,7 @@ class gencaptcha_final():
         self.line_number = (1, 5)
         self.savepath = savepath
         self.rotate = rotate
+        self.rangle = rangle
         pass
 
     def gen_one_char(self):
@@ -217,6 +220,9 @@ class gencaptcha_final():
 
         pass
 
+
+
+        pass
     def gocaptchagenning(self, savefname):
         """ """
         width, height = self.size  # 宽和高
@@ -252,7 +258,7 @@ class gencaptcha_final():
             if self.rotate:
                 # 字符旋转
                 # image.save("tmp1.png")
-                angle = random.randint(-10, 15)
+                angle = random.randint(-20, 20)  # -10, 15
                 image = image.rotate(angle, expand=0)     # random.randint(-10, 5)
                 # 将旋转后漏出的幕布用白色填充
                 fff = Image.new('RGBA', image.size, (255,) * 4)
@@ -268,9 +274,10 @@ class gencaptcha_final():
             # image = image.filter(ImageFilter.EDGE_ENHANCE_MORE)
 
             result_chars.append(text)
+	    ans_image = ans_image.convert("RGB")
         ans_image.save(savefname)  # 保存验证码图片
         print "finished gen %s......" % savefname
-        return "".join(result_chars), boxlist
+        return "".join(result_chars).lower(), boxlist
 
     def run(self):
         label_dic = {}
@@ -285,7 +292,7 @@ class gencaptcha_final():
             startindex = 0
 
         for c in range(startindex, startindex+self.totalnum):
-            label, boxlist = self.gocaptchagenning(os.path.join(self.savepath, "%s.png" % c))
+            label, boxlist = self.gocaptchagenning(os.path.join(self.savepath, "%s.jpg" % c))
             label_dic[c] = {"label":label, "boxlist": boxlist}
 
         with open(labelfilepath, "w")as wr:
@@ -311,7 +318,8 @@ if __name__ == '__main__':
     # tobj.gene_code()
 
     # 测试gencaptcha_final
-    # tobj = gencaptcha_final(6, 50000, savepath="/home/david/Documents/LAB_Codes/captcha/captcha_6-char")
-    tobj = gencaptcha_final(mode=6, totalnum=30000, savepath="/home/david/Documents/LAB_Codes/captcha/captcha_1-char", rotate=True)
+    tobj = gencaptcha_final(6, 5, savepath="/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/captcha_6-char_test", rotate=True)
+    # tobj = gencaptcha_final(mode=6, totalnum=120000, savepath="/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/captcha_1-char_12w", rotate=True)
     tobj.run()
+
     # tobj.gocaptchagenning()
