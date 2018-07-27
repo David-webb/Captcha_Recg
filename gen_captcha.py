@@ -8,7 +8,8 @@ import json
 import math
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import cv2
-import copy
+import math
+
 
 class gencaptcha_cnn_98():
     # 验证码中的字符, 就不用汉字了
@@ -104,7 +105,7 @@ class gencapthca_test():
 
 
 class gencaptcha_final():
-    def __init__(self, mode, totalnum, savepath="./captcha_set1", rotate=False, rangle=45):
+    def __init__(self, mode, totalnum, savepath="./captcha_set1", rotate=False, rangle=35, drawline=True):
         self.source = list(string.letters)
         for index in range(0, 10):
             self.source.append(str(index))
@@ -126,7 +127,7 @@ class gencaptcha_final():
         # 干扰线颜色。默认为红色
         self.linecolor = (0, 0, 0)
         # 是否要加入干扰线
-        self.draw_line = True
+        self.draw_line = drawline
         # 加入干扰线条数的上下限
         self.line_number = (1, 5)
         self.savepath = savepath
@@ -145,7 +146,7 @@ class gencaptcha_final():
         """ 获得待写字符的位置 """
         width, height = 35, 44
         c = 10 + 20 * lastchar_index        # 列号索引
-        rowindex = height - 15- font_height    # 底部需要留足空间用来旋转
+        rowindex = height - 15 - font_height    # 底部需要留足空间用来旋转
         r = random.randint(5, rowindex if rowindex > 5 else 8)   #
         # r = 0
         # self.getrotatedloc(c, r, font_height, font_width)
@@ -196,11 +197,52 @@ class gencaptcha_final():
         return new_lc, 0, new_rc, 44
         pass
 
-    def getrandomfont(self):
+    def getrandomfont(self, isdigit=False):
         """ 从字体池中随机抓一个字体 """
+        self.fontpool = self.getfontyptlists()
         charfont = random.sample(self.fontpool, 1)[0]  # 从字体库取一个字体路径
-        font = ImageFont.truetype(charfont, 25)  # 验证码的字体
+        # print charfont
+        font = ImageFont.truetype(charfont, 26)  # 验证码的字体
         return font
+        pass
+
+    def freshbox(self, imgobj, box):
+        """
+            提取图片中的文字的box
+            原始box: [c, 4, c+font_width+6, 44]
+        """
+        row, col, channel = imgobj.shape
+        cmin = 0
+        rmin = 4
+        cmax = col
+        rmax = 44
+        for c in range(col):
+            if np.where(imgobj[:, c] != [255, 255, 255, 255]):
+                cmin = c
+                break
+
+        for c in range(col)[::-1]:
+            if np.where(imgobj[:, c] != [255, 255, 255, 255]):
+                cmax = c
+                break
+
+        for r in range(row):
+            if np.where(imgobj[r, :] != [255, 255, 255, 255]):
+                rmin = r
+                break
+
+        for r in range(row)[::-1]:
+            if np.where(imgobj[r, :] != [255, 255, 255, 255]):
+                rmax = r
+                break
+        box = [box[0]+cmin, rmin, box[2]-(col-cmax), rmax]
+        return box
+
+        # print  np.where(timg[-20, -10] != [255, 255, 255, 255])
+        # if np.where(timg[-20, -10] != [255, 255, 255, 255]) != np.array([]):
+        #     print True
+        # else:
+        #     print False
         pass
 
     def writeonechar(self, tchar, tfont, tloc):
@@ -208,8 +250,38 @@ class gencaptcha_final():
 
         pass
 
-    def gen_curseline(self):
+
+    def getrandomsin(self):
+        """ 随机生成一个sin函数: y = Asin(wx + fie) + k"""
+        h, w = (44, 140)
+        circles = random.randint(1, 6)  # 图片中正弦曲线的周期波形个数
+        T = math.ceil(float(w)/circles)
+        w = 2 * math.pi / T
+        A = math.ceil(circles * 3 / 10.0 * h)
+        K = random.randint(math.floor(h/5.0), math.ceil(h/5.0 * 4 ))
+        fie = random.randint(0, math.ceil(T/2.0))
+        thickness = (7 - circles) / 2 # 实际上根据之前的统计，最粗的线的粗度在5左右，这里最粗的为6
+        return lambda x: A * math.sin(w * x + fie) + K, thickness
+
+        # if circles in [4, 5, 6]:
+        #     thickness = random.randint(1, 2)
+        # else:
+        #     thickness = random.randint(3, 5)
+        pass
+
+    def gen_curseline(self, ans_image):
         """ 在验证码图片中生成正弦曲线 """
+        # ans_image = Image.new('RGBA', (140, 44), self.bgcolor)  # 创建图片
+        # ans_image = np.array(ans_image)
+        func, thickness = self.getrandomsin()
+        for i in range(140-1):
+            startpoint = (i, int(round(func(i))))
+            endpoint = (i+1, int(round(func(i+1))))
+            cv2.line(ans_image, startpoint, endpoint, (0, 0, 0), thickness=thickness)
+	cv2.line(ans_image, (0, int(func(0))),(139, int(func(39))), (0,0,0), thickness=1)
+        # cv2.imshow("正弦曲线", ans_image)
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
         pass
 
     def mycharotate(self, r, c, font_weight, font_height, angle):
@@ -221,82 +293,221 @@ class gencaptcha_final():
         pass
 
 
+    def rmeightNeibornoisepoint(self, imgobj, ridus):
+        """ 用8领域法去除噪声点,特别是连续曲线中的噪声点 """
+        def pixel_8_neibor(r, c, imgobj):
+            black_count = 0
+            if r-1>=0:
+                black_count += 1 if imgobj[r-1,c] < 200 else 0  # 左上方
+                if c-1>=0: 
+                    black_count += 1 if imgobj[r-1,c-1] < 200 else 0 # 正上方
+                if c+1<w:
+                    black_count += 1 if imgobj[r-1, c+1] < 200 else 0 # 右上方
+            if r+1 < h:
+                black_count += 1 if imgobj[r+1, c] < 200 else 0    # 正下方
+                if c-1>=0: 
+                    black_count += 1 if imgobj[r+1, c-1] < 200 else 0 # 左下方
+                if c+1<w:
+                    black_count += 1 if imgobj[r+1, c+1] < 200 else 0 # 右下方
+            
+            if c-1 >= 0:
+                black_count += 1 if imgobj[r, c-1] < 200 else 0  # 左侧 
+            if c+1 < w:
+                black_count += 1 if imgobj[r, c+1] < 200 else 0  # 右侧
+                
+            if black_count >= ridus:
+                imgobj[r,c] = 0
+            
+            pass
+        h, w = imgobj.shape
+        for r in range(h):
+            for c in range(w):
+                if imgobj[r,c] >= 200:
+                    pixel_8_neibor(r,c,imgobj)
 
-        pass
+
     def gocaptchagenning(self, savefname):
-        """ """
+        """
+            代码里面涉及到numpy和PIL image的互换，这样方面image和opencv的组合使用，opencv中的逻辑操作还是很有用的，bitwise_and....
+            还尝试很多图片合并粘贴的操作，但是opencv的位运算效果更好
+
+            说明一下：h*w =  44*140的宽度分配规则是：左右两侧分别留出10p, 剩下120p均匀分给6个字符，各20p，这个规则用于计算每个字符的起始col值
+            然而在实际生成填写单个字符的小图片时，宽度给的是font_width+6, 也就是说，实际的写单个字符的小图片宽度范围是[c, c+font_width+6]
+            并且在写字符的时候，左右各留出3p，为了给字符旋转腾出空间，
+            因此，由于font_width的变化，可能出现font_width+6 > 20的情况，也就是字符粘黏
+        """
         width, height = self.size  # 宽和高
         ans_image = Image.new('RGBA', (width, height), self.bgcolor)  # 创建图片
+        ans_image = np.array(ans_image)
+        # ans_image =
         result_chars = []
         boxlist= []
         for i in range(self.number):
-            image = Image.new('RGBA', (width, height), self.bgcolor)  # 创建图片
             # 任选一个字体
             font = self.getrandomfont()
-            # 创建画笔
-            draw = ImageDraw.Draw(image)
+
             # 生成单个字符
             text = self.gen_one_char()
             # 计算字符放置坐标
             font_width, font_height = font.getsize(text)
             # print "font_width:%s, font_height:%s" % (font_width, font_height)
             r, c = self.getcharlocation(i, font_width, font_height)
+            # 创建图片
+            image = Image.new('RGBA', (font_width+6, height), self.bgcolor)
+            # 创建画笔
+            draw = ImageDraw.Draw(image)
             # 填充字符串
-            draw.text((c, r), text, font=font, fill=self.fontcolor)
+            draw.text((3, r), text, font=font, fill=self.fontcolor)
+
             # print "origin_c:%s, origin_r:%s" % (c, r)
             # print "font_width:%s, font_height:%s" %(font_width, font_height)
-            # 加干扰线
-            # if self.draw_line:
-            #     self.gene_line(draw, width, height)
+
 
             # 创建扭曲
             # image = image.transform((width + 20, height + 10), Image.AFFINE, (1, -0.3, 0, -0.1, 1, 0), Image.BILINEAR)
             # fff = Image.new('RGBA', image.size, (255,) * 4)
             # image = Image.composite(image, fff, image)
-
-            box = [c, 0, c+font_height, 44]
+            # print "new Image shape:" , image.size
+            box = [c, 4, c+font_width+6, 44]    # 因为r是（5+）起步的，所以这里给4是安全的
             if self.rotate:
                 # 字符旋转
                 # image.save("tmp1.png")
-                angle = random.randint(-20, 20)  # -10, 15
+                angle = random.randint(-self.rangle, self.rangle)  # -10, 15
                 image = image.rotate(angle, expand=0)     # random.randint(-10, 5)
                 # 将旋转后漏出的幕布用白色填充
                 fff = Image.new('RGBA', image.size, (255,) * 4)
                 image = Image.composite(image, fff, image)
-                # 将旋转后的字母区域剪切粘贴到ans_image
-                box = self.getrotatedloc(c, r, font_height, font_width, angle=angle)
-                # print angle, box
-                region = image.crop(box)
-                ans_image.paste(region, box)
+		
+            	# 滤镜，边界加强
+                image = image.filter(ImageFilter.EDGE_ENHANCE_MORE)
+                # 更新旋转后的box
+                # box = self.getrotatedloc(c, r, font_height, font_width, angle=angle)
+                timg = np.array(image)
+                box = self.freshbox(timg, box)
+                # print "旋转后的image.shape:" , image.size
+
+            # 将图片粘到ans_image上
+            image = np.array(image)
+            # print image.shape[1]
+            # print image.shape
+            h, w, channel = image.shape
+            if c+w > 139:
+                dis = (c+w) - 139
+                image = image[:, :w-dis]
+                step = 139-c
+            else:
+                step = w
+            # step = w if c+w < 140 else 139-c
+
+            tarea = ans_image[0:44, c:c+step]		# 部分字体会由于图片旋转，导致image的width变化，具体原因不明
+            try:
+                ans_image[0:44, c:c+step] = cv2.bitwise_and(tarea, image)
+            except Exception as e:
+                print "type(tarea):%s, type(image):%s" % (type(tarea), type(image))
+                print "tarea.shape:%s, image.shape:%s" % (tarea.shape, image.shape)
+            # 将旋转后的字母区域剪切粘贴到ans_image
+            # print angle, box
+            # region = image.crop(box)
+            # print region
+            # ans_image.paste(region, box)
+            # ans_image.paste(image, box)
+
             boxlist.append(box)
             # image.save('tmp.png')
             # 滤镜，边界加强
             # image = image.filter(ImageFilter.EDGE_ENHANCE_MORE)
-
             result_chars.append(text)
-	    ans_image = ans_image.convert("RGB")
-        ans_image.save(savefname)  # 保存验证码图片
+
+	# 降噪: 主要是边缘平滑
+	# kernel = np.ones((3,3), np.uint8)
+	# ans_image = cv2.morphologyEx(ans_image, cv2.MORPH_CLOSE, kernel)
+
+        im_gray = cv2.cvtColor(ans_image, cv2.COLOR_BGR2GRAY)  # 转换成灰度图
+        retval, ans_image = cv2.threshold(im_gray, 100, 255, cv2.THRESH_BINARY) # 二值化
+	self.rmeightNeibornoisepoint(ans_image, 6)	# 8领域降噪
+
+	#ans_image = cv2.pyrUp(ans_image)
+	#for i in range(15):
+	#    ans_image = cv2.medianBlur(ans_image, 3)
+	#ans_image = cv2.pyrDown(ans_image)
+        #retval, ans_image = cv2.threshold(ans_image, 200, 255, cv2.THRESH_BINARY) # 二值化
+
+        ## 加干扰线
+        if self.draw_line:
+            self.gen_curseline(ans_image)       # opencv 画曲线
+            # self.gene_line(draw, width, height) # PIL Image 画曲线
+	
+	cv2.imwrite(savefname, ans_image)
+        # ans_image = Image.fromarray(ans_image.astype('uint8')).convert("RGB")
+        # ans_image = ans_image.convert("RGB")
+        #ans_image.save(savefname)  # 保存验证码图片
         print "finished gen %s......" % savefname
         return "".join(result_chars).lower(), boxlist
 
     def run(self):
         label_dic = {}
+        # 获取当前目录和标记文件的绝对路径
         label_filename = os.path.basename(self.savepath)
-        localdirpath = os.path.abspath("..")
+        localdirpath = os.path.abspath(".")
         labelfilepath = os.path.join(localdirpath, "%s_label.json" % label_filename)
+
+        #
         if os.path.exists(labelfilepath):
             with open(labelfilepath)as rd:
                 label_dic = json.loads(rd.read())
-            startindex = int(max(label_dic.keys()))
+            startindex = max([int(k) for k in label_dic.keys()])
         else:
             startindex = 0
-
         for c in range(startindex, startindex+self.totalnum):
             label, boxlist = self.gocaptchagenning(os.path.join(self.savepath, "%s.jpg" % c))
-            label_dic[c] = {"label":label, "boxlist": boxlist}
+            label_dic[c] = {"label": label, "boxlist": boxlist}
 
         with open(labelfilepath, "w")as wr:
             wr.write(json.dumps(label_dic))
+        pass
+
+
+    def getfontyptlists(self, isdigit=False):
+        """ 获取ubuntu16.04中所有的系统字体"""
+        anslist = []
+        filterlist = []
+        with open('font.txt','r')as rd:
+            lines= rd.readlines()
+        filterlist = [line.strip() for line in lines]
+        d_filter = """z003034l_pfb,n021023l_pfb,Purisa_ttf,Purisa-Bold_ttf""".split(',')
+        if isdigit:
+            filterlist.extend(d_filter)
+        for root, dirs, files in os.walk("/usr/share/fonts"):
+            # print "root:%s" % root
+            # print "dirs:%s" % dirs
+            # print "files%s" % files
+            anslist.extend([os.path.join(root, f) for f in files if f.replace('.', '_') in filterlist]) #  and os.path.splitext(f)[1] in ['.ttf', '.ttc']
+        return anslist
+        pass
+
+    def printusefontpool(self):
+        """ 生成指定字体的图片 """
+        fontpool = self.getfontyptlists()
+        for cindex, font in enumerate(fontpool):
+            text = '2'
+            imgfilename = os.path.basename(font)
+            imgfilename = imgfilename.replace(".", "_")
+            # if imgfilename not in """Purisa-BoldOblique_ttf,Purisa-Bold_ttf,Purisa-Oblique_ttf,Purisa_ttf""".split(","):
+            #     continue
+            font = ImageFont.truetype(font, 25)
+            font_width, font_height = font.getsize(text)
+            # print "font_width:%s, font_height:%s" % (font_width, font_height)
+            r, c = self.getcharlocation(0, font_width, font_height)
+            # 创建图片
+            image = Image.new('RGBA', (font_width + 20, 44), self.bgcolor)
+            # 创建画笔
+            draw = ImageDraw.Draw(image)
+            # 填充字符串
+            draw.text((3, r), text, font=font, fill=self.fontcolor)
+            image = image.convert("RGB")
+
+            # print imgfilename
+            image.save(os.path.join("captchaV2", "%s.jpg"% imgfilename))
         pass
 
 if __name__ == '__main__':
@@ -318,8 +529,10 @@ if __name__ == '__main__':
     # tobj.gene_code()
 
     # 测试gencaptcha_final
-    tobj = gencaptcha_final(6, 5, savepath="/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/captcha_6-char_test", rotate=True)
+    tobj = gencaptcha_final(6, 150000, savepath="/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/captcha_6-char_test_15w_curseline", rotate=True, drawline=True)
     # tobj = gencaptcha_final(mode=6, totalnum=120000, savepath="/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/captcha_1-char_12w", rotate=True)
     tobj.run()
+    # tobj.gen_curseline("")
+    # 测试字体打印
+    # tobj.printusefontpool()
 
-    # tobj.gocaptchagenning()

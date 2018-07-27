@@ -2,56 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23a6a9b2-39bf-4402-a29e-116671a10e02" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/captcha.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/captcha.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/font.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha_1-char_label.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gen_captcha.py" beforeDir="false" afterPath="$PROJECT_DIR$/gen_captcha.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removeBKnoise.py" beforeDir="false" afterPath="$PROJECT_DIR$/removeBKnoise.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/0_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/12_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/13_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/15_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/17_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/18_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/21_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/24_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/25_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/29_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/31_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/37_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/3_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/40_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/41_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/42_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/43_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/45_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/46_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/48_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/49_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/59_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/64_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/65_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/66_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/67_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/69_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/72_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/75_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/79_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/81_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/82_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/83_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/84_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/85_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/86_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/87_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/89_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/90_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/94_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/96_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/97_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/99_c.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/9_c.jpg" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,54 +19,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="removeBKnoise.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="681" column="40" lean-forward="true" selection-start-line="681" selection-start-column="40" selection-end-line="681" selection-end-column="40" />
-              <folding>
-                <element signature="e#79#100#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="5_c.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sogoucapture/funcCruse/5_c.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="createCaptcha.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/createCaptcha.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-111">
-              <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-              <folding>
-                <element signature="e#224#271#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gen_captcha.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="gen_captcha.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gen_captcha.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="270" column="31" lean-forward="true" selection-start-line="270" selection-start-column="31" selection-end-line="270" selection-end-column="31" />
+            <state relative-caret-position="689">
+              <caret line="432" lean-forward="true" selection-start-line="432" selection-end-line="432" />
               <folding>
                 <element signature="e#14#75#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="recognnizeCaptcha.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/recognnizeCaptcha.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
-              <folding>
-                <element signature="e#77#95#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -157,6 +69,8 @@
       <find>&quot;275&quot;</find>
       <find>&quot;723&quot;</find>
       <find>self.</find>
+      <find>21</find>
+      <find>ImageFont.truetype</find>
     </findStrings>
     <replaceStrings>
       <replace>(self)</replace>
@@ -179,16 +93,17 @@
         <option value="$PROJECT_DIR$/recognnizeCaptcha.py" />
         <option value="$PROJECT_DIR$/createCaptcha.py" />
         <option value="$PROJECT_DIR$/cnnforcaptcha/gen_captcha.py" />
-        <option value="$PROJECT_DIR$/gen_captcha.py" />
         <option value="$PROJECT_DIR$/removeBKnoise.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/pycharm64.vmoptions" />
+        <option value="$PROJECT_DIR$/font.txt" />
+        <option value="$PROJECT_DIR$/gen_captcha.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="324" />
     <option name="y" value="-4" />
-    <option name="width" value="1364" />
-    <option name="height" value="764" />
+    <option name="width" value="960" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -210,7 +125,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../caffe_fasterrcnn_origindata/mkdataset" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.21052632" />
   </component>
@@ -222,11 +137,12 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/cutimgTemplate/algorithm/dropWater" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/cutimgTemplate/algorithm/dropWater" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -241,7 +157,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.removeBKnoise">
+  <component name="RunManager" selected="Python.gen_captcha (1)">
     <configuration name="createCaptcha" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="captcha" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -296,24 +212,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="recognnizeCaptcha" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="captcha" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/recognnizeCaptcha.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="removeBKnoise" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="captcha" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -335,6 +233,20 @@
     <configuration default="true" type="ApexTest" factoryName="Apex Test">
       <method />
     </configuration>
+    <configuration name="Nosetests in captcha_6-char_test" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+      <module name="captcha" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/captcha_6-char_test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/captcha_6-char_test&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Nosetests">
       <module name="captcha" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -352,17 +264,17 @@
     <list>
       <item itemvalue="Python.createCaptcha" />
       <item itemvalue="Python.removeBKnoise" />
-      <item itemvalue="Python.recognnizeCaptcha" />
       <item itemvalue="Python.gen_captcha" />
       <item itemvalue="Python.gen_captcha (1)" />
+      <item itemvalue="Python tests.Nosetests in captcha_6-char_test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.removeBKnoise" />
         <item itemvalue="Python.gen_captcha (1)" />
+        <item itemvalue="Python tests.Nosetests in captcha_6-char_test" />
+        <item itemvalue="Python.removeBKnoise" />
         <item itemvalue="Python.gen_captcha" />
         <item itemvalue="Python.createCaptcha" />
-        <item itemvalue="Python.recognnizeCaptcha" />
       </list>
     </recent_temporary>
   </component>
@@ -379,52 +291,60 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Nosetests_in_captcha_6-char_test - 2018.07.26 at 09h 19m 48s.xml">
+      <configuration name="Nosetests in captcha_6-char_test" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_in_captcha_6-char_test - 2018.07.26 at 09h 19m 51s.xml">
+      <configuration name="Nosetests in captcha_6-char_test" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.22916667" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.18333334" />
       <window_info anchor="bottom" id="TODO" order="13" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50215286" side_tool="true" weight="0.32914287" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49784714" visible="true" weight="0.32890704" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Python Console" order="3" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49784714" weight="0.32890704" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="5" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
       <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Salesforce" order="6" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.2497309" />
-      <window_info anchor="bottom" id="Debug Logs" order="0" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" id="Data View" order="0" />
+      <window_info anchor="bottom" id="Debug Logs" order="0" />
       <window_info anchor="bottom" id="Execute Anonymous" order="4" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="8" />
+      <window_info anchor="right" id="Data View" order="0" />
     </layout>
     <layout-to-restore>
       <window_info anchor="bottom" id="Salesforce" order="6" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.2497309" />
       <window_info content_ui="combo" id="Project" order="1" weight="0.20882669" />
       <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49784714" visible="true" weight="0.32914287" />
+      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="right" id="Data View" order="0" />
       <window_info id="Structure" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="13" />
       <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Debug Logs" order="0" />
       <window_info anchor="bottom" id="Python Console" order="3" />
-      <window_info anchor="bottom" id="Message" order="7" />
-      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="8" />
       <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Execute Anonymous" order="4" />
       <window_info anchor="bottom" id="Terminal" order="5" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50215286" side_tool="true" weight="0.32914287" />
-      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="8" />
+      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
+      <window_info anchor="bottom" id="Debug Logs" order="0" />
+      <window_info anchor="bottom" id="Message" order="7" />
       <window_info id="Favorites" order="0" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -433,94 +353,125 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/code.jpg">
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/14.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file:///usr/local/lib/python2.7/dist-packages/claptcha/claptcha.py" />
-    <entry file="file://$PROJECT_DIR$/captcha/AABW.jpg">
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/15.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/testBinaryimg.jpg" />
-    <entry file="file://$PROJECT_DIR$/testbinary.jpg">
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/16.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/cutimgTemplate/algorithm/dropWater/cuts-d-2.png" />
-    <entry file="file://$PROJECT_DIR$/cutimgTemplate/algorithm/dropWater/cuts-d-1.png" />
-    <entry file="file://$PROJECT_DIR$/cutimgTemplate/algorithm/dropWater/drop water.py" />
-    <entry file="file://$PROJECT_DIR$/testrm.jpg">
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/17.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/-1247972723/posix.py" />
-    <entry file="file:///usr/lib/python2.7/ntpath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="444" column="8" selection-start-line="444" selection-start-column="8" selection-end-line="444" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python2.7/Queue.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python2.7/dist-packages/captcha/image.py" />
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/-1247972723/cv2/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/closing.jpg" />
-    <entry file="file://$PROJECT_DIR$/cutimgTemplate/fuck-captcha/fuck_sjtu_captcha.py" />
-    <entry file="file://$PROJECT_DIR$/captcha/AALJ.jpg">
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/18.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file:///usr/lib/python2.7/dist-packages/PIL/ImageFont.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3174">
-          <caret line="142" selection-start-line="142" selection-end-line="142" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cnnforcaptcha/idencode.png" />
-    <entry file="file://$PROJECT_DIR$/bwtest.jpg">
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/19.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmp.jpg" />
-    <entry file="file:///usr/lib/python2.7/dist-packages/PIL/ImageDraw.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="272" column="48" lean-forward="true" selection-start-line="272" selection-start-column="48" selection-end-line="272" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cnnforcaptcha/tmp.png" />
-    <entry file="file://$PROJECT_DIR$/cnnforcaptcha/tmp1.png" />
-    <entry file="file:///usr/lib/python2.7/dist-packages/PIL/Image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="1272" column="8" selection-start-line="1272" selection-start-column="8" selection-end-line="1272" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/captcha_1-char/0.png" />
-    <entry file="file://$PROJECT_DIR$/cnnforcaptcha/gen_captcha.py" />
-    <entry file="file://$PROJECT_DIR$/captcha_1-char_label.json" />
-    <entry file="file://$PROJECT_DIR$/recognnizeCaptcha.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
-          <folding>
-            <element signature="e#77#95#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noisepoint.jpg">
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/20.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/0.jpg">
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/21.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/22.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/23.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/24.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/25.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/26.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/27.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/28.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/29.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/30.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/31.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/32.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/33.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/34.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/36.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/35.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/37.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/38.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/39.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/40.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/41.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/42.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/43.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/44.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/45.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/46.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/47.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/48.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/49.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captchaV2/Loma-BoldOblique_ttf.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cnnforcaptcha/0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/3.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/captcha_6-char_test/1.jpg">
@@ -529,27 +480,17 @@
     <entry file="file://$PROJECT_DIR$/captcha_6-char_test/2.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/3.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/captcha_6-char_test/4.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/6.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/captcha_6-char_test/5.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/7.jpg">
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/6.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/PIL/Image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="1872" column="8" selection-start-line="1872" selection-start-column="8" selection-end-line="1872" selection-end-column="8" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/7.jpg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/captcha_6-char_test/8.jpg">
       <provider selected="true" editor-type-id="images" />
@@ -557,53 +498,25 @@
     <entry file="file://$PROJECT_DIR$/captcha_6-char_test/9.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/12.jpg">
+    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/0.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/13.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/11.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/10.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/captcha_6-char_label.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sogoucapture/0_c.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createCaptcha.py">
+    <entry file="file://$PROJECT_DIR$/font.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-111">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-          <folding>
-            <element signature="e#224#271#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="400">
+          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sogoucapture/funcCruse/5_c.jpg">
+    <entry file="file://$PROJECT_DIR$/sogoucaptcha_templates/0.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/gen_captcha.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="270" column="31" lean-forward="true" selection-start-line="270" selection-start-column="31" selection-end-line="270" selection-end-column="31" />
+        <state relative-caret-position="689">
+          <caret line="432" lean-forward="true" selection-start-line="432" selection-end-line="432" />
           <folding>
             <element signature="e#14#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="681" column="40" lean-forward="true" selection-start-line="681" selection-start-column="40" selection-end-line="681" selection-end-column="40" />
-          <folding>
-            <element signature="e#79#100#0" expanded="true" />
           </folding>
         </state>
       </provider>

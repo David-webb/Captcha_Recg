@@ -745,7 +745,7 @@ if __name__ == '__main__':
 
     # 使用联通量算法清除曲线
     tobj = rmBKnoise()
-    # tobj.rmbkalpahb("sogoucapture/0")     # "captcha/AABW.jpg"
+    # tobj.rmbkalpahb("sogoucapture/funcCruse/5")     # "captcha/AABW.jpg"
     # tobj.rmcurselines()
     # startblock, imgobj = tobj.getstartendblock("bwtest.jpg")
     # print startblock, imgobj
@@ -754,21 +754,21 @@ if __name__ == '__main__':
 
 
     # 使用扫描算法实现曲线的清除
-    # files = os.listdir("sogoucapture")  # /funcCruse
-    # abpath = os.path.abspath("sogoucapture")  # /funcCruse
-    # for f in files:
-    #     print "start processing file %s......" % f
-    #     fname = os.path.join(abpath, f)
-    #     if not os.path.isdir(fname):
-    #         tscanobj = rmcurselinewithscanning(fname)
-    #         tscanobj.run()
-    #     print "end processing file %s......\n" % f
-    # pass
+    files = os.listdir("sogoucapture/funcCruse")  # /funcCruse
+    abpath = os.path.abspath("sogoucapture/funcCruse")  # /funcCruse
+    for f in files:
+        print "start processing file %s......" % f
+        fname = os.path.join(abpath, f)
+        if not os.path.isdir(fname):
+            tscanobj = rmcurselinewithscanning(fname)
+            tscanobj.run()
+        print "end processing file %s......\n" % f
+    pass
 
 
     # 从颜色角度去除曲线
-    robj = rmcurlinebycolor()
-    robj.rmobjbycolor()
+    #robj = rmcurlinebycolor()
+    #robj.rmobjbycolor()
 
 
 

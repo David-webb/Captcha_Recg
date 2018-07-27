@@ -6,5 +6,8 @@ captcha_6-char_test/
 captcha_faster-rcnn_box_char/
 cnnforcaptcha/
 sougoucaptcha_templates/
+captcha_6-char_test_15w_curseline/
+captchaV2/
 
 *.zip 
+*.jpg
