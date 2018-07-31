@@ -3,7 +3,11 @@
 
 # Created by David Teng on 18-7-4
 
-
+from sklearn.cluster import AgglomerativeClustering
+import scipy.spatial.distance as scidst
+from sklearn import metrics
+import matplotlib
+import matplotlib.pyplot as plt
 from PIL import Image
 # import pytesseract
 import cv2
@@ -20,7 +24,7 @@ class rmBKnoise():
         2. 寻找直线的两端
         3.
     """
-    
+
     def rmbkalpahb(self, imgname, b_threshold=100, savepath="bwtest.jpg"):
         """ opencv: 去除背景小字母,灰度化之后再二值化 """
         im = cv2.imread(imgname)  # 读取图片
@@ -243,25 +247,27 @@ class rmcurselinewithscanning():
             black_count = 0
             if r-1>=0:
                 black_count += 1 if imgobj[r-1,c] < 200 else 0  # 左上方
-                if c-1>=0: 
+                if c-1>=0:
                     black_count += 1 if imgobj[r-1,c-1] < 200 else 0 # 正上方
                 if c+1<w:
                     black_count += 1 if imgobj[r-1, c+1] < 200 else 0 # 右上方
             if r+1 < h:
                 black_count += 1 if imgobj[r+1, c] < 200 else 0    # 正下方
-                if c-1>=0: 
+                if c-1>=0:
                     black_count += 1 if imgobj[r+1, c-1] < 200 else 0 # 左下方
                 if c+1<w:
                     black_count += 1 if imgobj[r+1, c+1] < 200 else 0 # 右下方
-            
+
             if c-1 >= 0:
                 black_count += 1 if imgobj[r, c-1] < 200 else 0  # 左侧 
             if c+1 < w:
                 black_count += 1 if imgobj[r, c+1] < 200 else 0  # 右侧
-                
+
             if black_count >= 5:
                 imgobj[r,c] = 0
-            
+            else:
+                imgobj[r,c] = 1
+
             pass
         h, w = self.imgobj.shape
         for r in range(h):
@@ -269,13 +275,13 @@ class rmcurselinewithscanning():
                 if self.imgobj[r,c] >= 200:
                     pixel_8_neibor(r,c,self.imgobj)
         pass
-    
+
     def tobinarypic(self, b_threshold=100):
         """ 将验证码图片二值化 """
         im = cv2.imread(self.imgpath)  # 读取图片
         im_gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)  # 转换成灰度图
         retval, im_at_fixed = cv2.threshold(im_gray, b_threshold, 255, cv2.THRESH_BINARY)  # 二值化
-        
+
         self.imgobj = im_at_fixed
         return im_at_fixed
 
@@ -481,7 +487,7 @@ class rmcurselinewithscanning():
             if newblock:
                 self.rmcurseblock(newblock, c, mode="C")
                 old_block = newblock
-            
+
         pass
 
 
@@ -623,7 +629,7 @@ class rmcurselinewithscanning():
         for c in range(0, 140):
             r = sinfunc(paramslist, c)
             if r in range(0, 44):
-                    setrmarea(r, c)
+                setrmarea(r, c)
         pass
 
     def rowscan(self, s_block):
@@ -653,8 +659,8 @@ class rmcurselinewithscanning():
     def run(self, b_threshold=100):
         """ """
         imgobj = self.tobinarypic(b_threshold=b_threshold)  # 这里的 b_threshold是二值化时的阈值,默认是100,
-                                                                   # 这是根据微信搜狗验证码的特性(背景字母颜色淡)得到的
-        self.rmeightNeibornoisepoint()      # 八邻域降噪
+        # 这是根据微信搜狗验证码的特性(背景字母颜色淡)得到的
+        # self.rmeightNeibornoisepoint()      # 八邻域降噪
         # s_block = self.getstartblock(imgobj)
         # # self.s_blocks = s_block
         # # self.rowscan(s_block=s_block)
@@ -667,6 +673,7 @@ class rmcurselinewithscanning():
         pass
 
 class rmcurlinebycolor():
+
 
     def getfrontground(self, imgobj):
         """ 获取验证码图片的前景图中的字母和曲线 """
@@ -684,10 +691,108 @@ class rmcurlinebycolor():
         img2_fg = cv2.bitwise_and(roi, roi, mask=mask_inv)
         # dst = cv2.add(img2_fg, img2)
         # img1[0:rows, 0:cols] = dst
-        return img2_fg
         # cv2.imshow('res', img2_fg)
         # cv2.waitKey(0)
         # cv2.destroyAllWindows()
+        return img2_fg
+
+    def rmeightNeibornoisepoint(self, imgobj):
+        """ 用8领域法去除噪声点,特别是连续曲线中的噪声点 """
+        def pixel_8_neibor(r, c, imgobj):
+            black_count = 0
+            if r-1>=0:
+                black_count += 1 if imgobj[r-1,c] < 200 else 0  # 左上方
+                if c-1>=0:
+                    black_count += 1 if imgobj[r-1,c-1] < 200 else 0 # 正上方
+                if c+1<w:
+                    black_count += 1 if imgobj[r-1, c+1] < 200 else 0 # 右上方
+            if r+1 < h:
+                black_count += 1 if imgobj[r+1, c] < 200 else 0    # 正下方
+                if c-1>=0:
+                    black_count += 1 if imgobj[r+1, c-1] < 200 else 0 # 左下方
+                if c+1<w:
+                    black_count += 1 if imgobj[r+1, c+1] < 200 else 0 # 右下方
+
+            if c-1 >= 0:
+                black_count += 1 if imgobj[r, c-1] < 200 else 0  # 左侧 
+            if c+1 < w:
+                black_count += 1 if imgobj[r, c+1] < 200 else 0  # 右侧
+
+            #print black_count
+            if black_count >= 4:
+                imgobj[r,c] = 0
+            else:
+                print imgobj[r,c], black_count
+                imgobj[r,c] = 255
+
+
+        h, w = imgobj.shape
+        print h, w
+        for r in range(h):
+            for c in range(w):
+                # if imgobj[r,c] >= 200:
+                pixel_8_neibor(r, c, imgobj)
+
+    def corrosion(self, imgobj=None):
+        """ 使用腐蚀操作，对细曲线进行去除"""
+        imgobj = cv2.imread("/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/sogoucapture/9")
+        imgobj = cv2.cvtColor(imgobj, cv2.COLOR_BGR2GRAY)
+        ret, imgobj = cv2.threshold(imgobj, 100, 255, cv2.THRESH_BINARY)
+        old_th = copy.deepcopy(imgobj)
+        #imgobj = cv2.bitwise_not(imgobj)
+        #kernel = numpy.ones((1,1), numpy.uint8)
+        #imgobj = cv2.erode(imgobj, kernel, iterations = 1) # 腐蚀
+        #imgobj = cv2.bitwise_not(imgobj)
+        # cv2.imwrite("/home/jingdata/Document/LAB_CODE/corrosion.jpg", imgobj)
+        #imgobj = cv2.dilate(imgobj ,kernel,iterations = 1)	 # 膨胀
+        # self.rmeightNeibornoisepoint(imgobj)			# 八领域降噪
+        # imgobj = cv2.bitwise_not(imgobj)
+        #imgobj = cv2.Canny(imgobj, 100, 200)  # 找边界
+        imgobj = cv2.bitwise_not(imgobj)      # 找轮廓只能针对黑底白字,并且会对原图操作
+        contours, hierarchy = cv2.findContours(imgobj, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+        for i in range(0, len(contours)):
+            area = cv2.contourArea(contours[i])
+            print area
+            #if area > 3000 or area < 200:
+            #    continue
+            x, y, w, h = cv2.boundingRect(contours[i])
+            cv2.rectangle(old_th, (x,y), (x+w,y+h), (0,0,255), 1)
+
+        # print contours
+        # imgobj = cv2.bitwise_not(imgobj)
+        # cnt = contours[0]
+        # cv2.drawContours(imgobj, contours[1], -1, (0,0,255), 1)
+        # x,y,w,h = cv2.boundingRect(cnt)
+        #print x,y,w,h
+        #cv2.rectangle(imgobj, (x, y), (x+w, y+h),(0,0,255), 2)
+
+        imgobj = cv2.bitwise_not(imgobj)
+        cv2.imshow('res', old_th)	# 如果显示的图片太小，可以使用cv2.resize()
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+    pass
+
+    def findcontours(self):
+        """ 寻找轮廓 """
+        pass
+
+
+    def getdistlist_from_frontground(self, imgobj, discalc_mode='color'):
+        """
+            用mask获得img的前景图，并且从中提取出所有的前景点，计算任意两个点之间的距离并返回
+        返回值：
+            pointslist: 包含所有前景点坐标的列表
+            distlist: 距离列表，用于聚类时构造距离矩阵，保存的值为pointslist中任意两点之前的距离
+            imgobj: mask之后的前景图
+        """
+        imgobj = self.getfrontground(imgobj)
+        # print imgobj[0,:]
+        pointslist = self.getpointslist(imgobj)
+        distlist = self.calspaceORcolordist(pointslist, mode=discalc_mode)  # discalc_mode取值可以是color, s_c, space
+        pointslist = [(p[0], p[1]) for p in pointslist]
+        return pointslist, distlist, imgobj
+        pass
 
     def rmobjbycolor(self):
         """ 对原始图片从像素值角度进行统计：设置阈值，直接对原图片进行操作，对于在指定阈值范围内的像素点进行抹除 """
@@ -701,38 +806,245 @@ class rmcurlinebycolor():
                 imgobj = cv2.imread(fname)
                 h, w = (44, 140)
                 imgobj = self.getfrontground(imgobj)
-                imgobj[imgobj==0] = 255
-                for r in range(0, h):
-                    for c in range(0, w):
-                        tkey = "_".join("{0}".format(n) for n in imgobj[r, c])
-                        if tkey == "255_255_255":
-                            continue
-                        if tkey in rgbdict.keys():
-                            rgbdict[tkey] += 1
-                        else:
-                            rgbdict[tkey] = 1
-                maxv = 0
-                maxk = ""
-                for k, v in rgbdict.items():
-                    print k, v
-                    if v > maxv:
-                        maxk = k
-                        maxv = v
-                    if v == 48:
-                        print k
+                # print imgobj[0,:]
+                pointslist = self.getpointslist(imgobj)
+                distlist = self.calspaceORcolordist(pointslist, mode='color')  # mode取值可以是color, s_c, space
+                pointslist = [(p[0], p[1]) for p in pointslist]
+                return pointslist, distlist, imgobj
+                # break
+            #     imgobj[imgobj==0] = 255
+            #     for r in range(0, h):
+            #         for c in range(0, w):
+            #             tkey = "_".join("{0}".format(n) for n in imgobj[r, c])
+            #             if tkey == "255_255_255":
+            #                 continue
+            #             if tkey in rgbdict.keys():
+            #                 rgbdict[tkey] += 1
+            #             else:
+            #                 rgbdict[tkey] = 1
+            #     maxv = 0
+            #     maxk = ""
+            #     for k, v in rgbdict.items():
+            #         print k, v
+            #         if v > maxv:
+            #             maxk = k
+            #             maxv = v
+            #         if v == 48:
+            #             print k
+            #
+            #     vlist = [int(i) for i in maxk.split("_")]
+            #
+            #     for r in range(0, h):
+            #         for c in range(0, w):
+            #             # print vlist
+            #             if list(imgobj[r, c]) == [165, 173, 166]:
+            #                 # print imgobj[r,c]
+            #                 imgobj[r, c] = [255, 255, 255]
+            #                 # print imgobj[r,c]
+            #     cv2.imwrite("%s_c.jpg" % fname, imgobj)
+            # print "end processing file %s......\n" % f
 
-                vlist = [int(i) for i in maxk.split("_")]
+    def getpointslist(self,imgobj):
+        """ mask后的图片中提取对应的点
+        返回pointlist=[(x, y, [*,*,*]), ...]
+        """
+        #imgobj[]
+        # print type(imgobj)
+        # imgobj = cv2.bitwise_not(imgobj)
+        pointslist = []
+        h, w, channel = imgobj.shape
+        for r in range(h):
+            for c in range(w):
+                if list(imgobj[r, c]) != [0, 0, 0]:
+                    pointslist.append((r, c, imgobj[r, c]))
+                else:						# 这边可能存在问题，如果字符或者曲线是黑色先画出来的，就有可能误删
+                    imgobj[r, c] = [255, 255, 255]
+                    pass
+        # print pointslist
+        # cv2.imshow('res', imgobj)
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
 
-                for r in range(0, h):
-                    for c in range(0, w):
-                        # print vlist
-                        if list(imgobj[r, c]) == [165, 173, 166]:
-                            # print imgobj[r,c]
-                            imgobj[r, c] = [255, 255, 255]
-                            # print imgobj[r,c]
-                cv2.imwrite("%s_c.jpg" % fname, imgobj)
-            print "end processing file %s......\n" % f
-    pass
+        return pointslist
+
+
+    def calspaceORcolordist(self, pointslist, mode='color'):
+        """ 计算任意两点之间的距离：二维实体空间的距离、颜色空间的距离或者二者的综合 """
+
+        def colordist(p1, p2):
+            """ 计算颜色空间的距离 """
+            p1_c = p1[2]
+            p2_c = p2[2]
+            cdist = numpy.sqrt(numpy.sum(numpy.square(p1_c - p2_c)))
+            return cdist
+
+        def spacedist(p1, p2):
+            """ 计算二维实体空间的距离 """
+            p1_s = numpy.array(p1[:2])
+            p2_s = numpy.array(p2[:2])
+            sdist = numpy.sqrt(numpy.sum(numpy.square(p1_s - p2_s)))
+            return sdist
+
+
+        def fullmatrix(distlist, totalpoints):
+            matrixlist = []
+            n = totalpoints
+            # 将右上三角矩阵扩充成对称矩阵
+            for i in range(n):
+                rowlist = [0] * (i+1)
+                s_index = i*n - (1+i)*i / 2
+                e_index = (i+1)*n - (i+2)*(i+1)/2
+                rowlist.extend(distlist[s_index:e_index])
+                matrixlist.append(rowlist)
+            M = numpy.array(matrixlist)
+            M += M.T - numpy.diag(M.diagonal())
+            # 美化输出
+            import pprint
+            pprint.pprint(M)
+            return M
+            pass
+
+        def space_color_dist(pointslist):
+            """ 计算实体_颜色空间的距离: 归一化后，各自权重取0.5 """
+            # 分别计算颜色空间距离和实体空间距离
+            clrdist = []
+            spcdist = []
+            for i, fp in enumerate(pointslist):
+                for ep in pointslist[i + 1:]:
+                    clrdist.append(colordist(fp, ep))
+                    spcdist.append(spacedist(fp, ep))
+            # # 将上述上三角矩阵扩充成完整的对角矩阵，并对每行求和
+            # c_M = fullmatrix(clrdist, len(pointslist))  # 将上述上三角矩阵扩充成完整的对角矩阵
+            # lin_c_sum = map(sum, c_M)  # 对颜色空间距离矩阵的每行求和
+            # s_M = fullmatrix(spcdist, len(pointslist))  # 将上述上三角矩阵扩充成完整的对角矩阵
+            # lin_s_sum = map(sum, s_M)  # 对实体空间距离矩阵的每行求和
+            #
+            # # 对距离列表中的元素进行归一化操作
+            # c = 0
+            # for i, _ in enumerate(pointslist):
+            #     for j, _ in enumerate(pointslist[i + 1:]):
+            #         clrdist[c] /= float(lin_c_sum[i])
+            #         spcdist[c] /= float(lin_s_sum[i])
+            #         c += 1
+
+            # 对两个距离列表分别进行求和，并分别进行归一化
+            c_sum = float(sum(clrdist))
+            s_sum = float(sum(spcdist))
+            clrdist = [c/c_sum for c in clrdist]
+            spcdist = [s/s_sum for s in spcdist]
+            # 按照各0.5的权值叠加颜色距离和实体距离
+            s_c_dist = [0.8*c + 0.2*s for c, s in zip(clrdist, spcdist)]
+            return s_c_dist
+            pass
+
+        # 如果是计算颜色_实体空间距离
+        if mode == "s_c":
+            return space_color_dist(pointslist)
+
+        # 否则，再判断是计算颜色空间距离或实体空间距离
+        distlist = []
+        for i, fp in enumerate(pointslist):
+            for ep in pointslist[i+1:]:     # 这里做切片的时候，如果i+1 == len(pointslist), 则切片返回[],所以这样写是安全的
+                if mode == 'color':
+                    distlist.append(colordist(fp, ep))
+                else:
+                    distlist.append(spacedist(fp, ep))
+                pass
+        # print distlist
+        return distlist
+
+    def drawpic(self, pointslist, labels):
+        """ """
+        f2 = plt.figure(1)
+        ax = f2.add_subplot(111)
+        colorlsit = ['b', 'c', 'g','k', 'm', 'r', 'y']
+        picpointsdic = {}
+        for p, l in zip(pointslist, labels):
+            if l in picpointsdic.keys():
+                picpointsdic[l].append(tuple(p))
+            else:
+                picpointsdic[l] = [tuple(p)]
+        for k, v in picpointsdic.items():
+            x = [i[1] for i in v]
+            y = [-j[0] for j in v]
+            # print x, y
+            ax.scatter(x, y, color=colorlsit[k], label=k, s=10)
+        ax.legend(loc="upper right")
+        plt.show()
+        pass
+
+    def getbiggestypepointset(self, pointslist, labels):
+        """ 讲聚类后的每一类点投影到x轴，覆盖面积最大的默认是曲线 """
+        ansdic = {}
+        for p, l in zip(pointslist, labels):
+            if l in ansdic.keys():
+                ansdic[l].append(tuple(p))
+            else:
+                ansdic[l] = [tuple(p)]
+        max = 0
+        maxk = 0
+        for k, v in ansdic.items():
+            v = [i[1] for i in v]
+            if len(set(v)) > max:
+                max = len(set(v))
+                maxk = k
+        print maxk
+        return ansdic[maxk]
+        pass
+
+    def rmcurselinepoints(self, imgobj, pointslist):
+        # print imgobj
+        for p in pointslist:
+            imgobj[p[0], p[1]] = [255, 255, 255]
+        pass
+
+    def rmCurseline_by_Agglocluster(self, imgobj, discalc_mode='color'):
+        """利用聚类算法对mask后的图片进行曲线和字母分离"""
+        # pointslist, distlist, imgobj = self.rmobjbycolor()
+
+        # 数据准备：计算前景点和距离列表
+        # 其中参数discalc_mode取值可以是color, s_c, space, 分别对应颜色聚类、颜色_实体空间聚类、实体空间聚类
+        pointslist, distlist, imgobj = self.getdistlist_from_frontground(imgobj, discalc_mode=discalc_mode)
+
+        # 层次聚类
+        model = AgglomerativeClustering(n_clusters=7, affinity='precomputed', linkage='average')
+        dist_matrix = scidst.squareform(numpy.array(distlist))
+        labels = model.fit_predict(dist_matrix)
+        # metrics.silhouette_score(dist_matrix, labels=labels, metric="precomputed") # 轮廓系数，检测聚类质量
+        # print len(pointslist), len(labels)
+
+        # 根据前景点数据和对应的label画图
+        self.drawpic(pointslist, labels)
+
+        # 找出曲线所在的类（通过投影的方式），将该类的点全部置成背景色
+        curselinepoints = self.getbiggestypepointset(pointslist, labels)
+        self.rmcurselinepoints(imgobj, curselinepoints)
+        # kernel = numpy.ones((3,3), numpy.uint8)   #
+        # imgobj = cv2.erode(imgobj, kernel, iterations = 1) # 腐蚀
+        # imgobj = cv2.dilate(imgobj ,kernel,iterations = 1)	 # 膨胀
+        # imgobj = cv2.GaussianBlur(imgobj, (3,3), 0) # 高斯滤波
+        # imgobj = cv2.medianBlur(imgobj, 3)    # 中值滤波:效果最好，但是会连带删除部分字体
+        # imgobj = cv2.blur(imgobj, (3, 3))     # 平均:效果差
+
+        # cv2.imshow('res', imgobj)
+        # cv2.waitKey(500)
+        # cv2.destroyAllWindows()
+
+        pass
+
+    def run(self):
+        dirname = "sogoucapture/classicCaptcha"
+        files = os.listdir(dirname)
+        abpath = os.path.abspath(dirname)
+        rgbdict = {}
+        for f in files[7:]:
+            print "start processing file %s......" % f
+            fname = os.path.join(abpath, f)
+            if not os.path.isdir(fname):
+                imgobj = cv2.imread(fname)
+                self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='color')
+
+        pass
 
 if __name__ == '__main__':
     # p1 = Image.open('sogoucapture/0') #
@@ -754,22 +1066,23 @@ if __name__ == '__main__':
 
 
     # 使用扫描算法实现曲线的清除
-    files = os.listdir("sogoucapture/funcCruse")  # /funcCruse
-    abpath = os.path.abspath("sogoucapture/funcCruse")  # /funcCruse
-    for f in files:
-        print "start processing file %s......" % f
-        fname = os.path.join(abpath, f)
-        if not os.path.isdir(fname):
-            tscanobj = rmcurselinewithscanning(fname)
-            tscanobj.run()
-        print "end processing file %s......\n" % f
-    pass
+    #files = os.listdir("sogoucapture/")  # /funcCruse
+    #abpath = os.path.abspath("sogoucapture/")  # /funcCruse
+    #for f in files:
+    #    print "start processing file %s......" % f
+    #    fname = os.path.join(abpath, f)
+    #    if not os.path.isdir(fname):
+    #        tscanobj = rmcurselinewithscanning(fname)
+    #        tscanobj.run()
+    #    print "end processing file %s......\n" % f
+    #pass
 
 
     # 从颜色角度去除曲线
-    #robj = rmcurlinebycolor()
-    #robj.rmobjbycolor()
-
-
+    robj = rmcurlinebycolor()
+    # robj.rmobjbycolor()
+    #robj.corrosion() # 腐蚀、膨胀、找轮廓的尝试
+    # robj.rmCurseline_by_Agglocluster()
+    robj.run()
 
     pass

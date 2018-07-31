@@ -212,6 +212,8 @@ class gencaptcha_final():
             原始box: [c, 4, c+font_width+6, 44]
         """
         row, col, channel = imgobj.shape
+	row = row if row < 44 else 44
+	col = col if col < 140 else 140
         cmin = 0
         rmin = 4
         cmax = col
@@ -399,7 +401,7 @@ class gencaptcha_final():
                 step = w
             # step = w if c+w < 140 else 139-c
 
-            tarea = ans_image[0:44, c:c+step]		# 部分字体会由于图片旋转，导致image的width变化，具体原因不明
+            tarea = ans_image[0:44, c:c+step]		# 部分字体会由于图片旋转，导致image的width变化，因为新建小图片的时候没有验证c+font_width+6是否大于140
             try:
                 ans_image[0:44, c:c+step] = cv2.bitwise_and(tarea, image)
             except Exception as e:

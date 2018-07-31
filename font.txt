@@ -22,4 +22,4 @@ Vera_ttf
 Waree-BoldOblique_ttf
 fonts-japanese-gothic_ttf
 n021004l_pfb
-n019064l.pfb
+n019064l_pfb
