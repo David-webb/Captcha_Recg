@@ -704,7 +704,7 @@ class rmcurlinebycolor():
         """ 用8领域法去除噪声点,特别是连续曲线中的噪声点 """
         def pixel_8_neibor(r, c, imgobj):
             black_count = 0
-            if r-1>=0:
+            if r-1 >= 0:
                 black_count += 1 if imgobj[r-1,c] < 200 else 0  # 左上方
                 if c-1>=0:
                     black_count += 1 if imgobj[r-1,c-1] < 200 else 0 # 正上方
@@ -1015,7 +1015,7 @@ class rmcurlinebycolor():
         pointslist, distlist, imgobj = self.getdistlist_from_frontground(imgobj, discalc_mode=discalc_mode)
 
         # 层次聚类
-        model = AgglomerativeClustering(n_clusters=7, affinity='precomputed', linkage='average')
+        model = AgglomerativeClustering(n_clusters=6, affinity='precomputed', linkage='average')
         dist_matrix = scidst.squareform(numpy.array(distlist))      # 根据距离列表构造距离矩阵
         labels = model.fit_predict(dist_matrix)
         # metrics.silhouette_score(dist_matrix, labels=labels, metric="precomputed") # 轮廓系数，检测聚类质量

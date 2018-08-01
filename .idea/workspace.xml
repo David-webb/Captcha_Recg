@@ -6,7 +6,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a6a9b2-39bf-4402-a29e-116671a10e02" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/gen_captcha.py" beforeDir="false" afterPath="$PROJECT_DIR$/gen_captcha.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/removeBKnoise.py" beforeDir="false" afterPath="$PROJECT_DIR$/removeBKnoise.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -25,8 +24,8 @@
       <file leaf-file-name="removeBKnoise.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10">
-              <caret line="874" column="8" selection-start-line="874" selection-start-column="8" selection-end-line="874" selection-end-column="8" />
+            <state relative-caret-position="11296">
+              <caret line="706" column="24" lean-forward="true" selection-start-line="706" selection-start-column="24" selection-end-line="706" selection-end-column="24" />
               <folding>
                 <element signature="e#78#137#0" expanded="true" />
               </folding>
@@ -116,10 +115,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="503" />
-    <option name="y" value="4" />
-    <option name="width" value="958" />
-    <option name="height" value="1076" />
+    <option name="y" value="-4" />
+    <option name="width" value="1920" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -447,8 +445,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
-          <caret line="874" column="8" selection-start-line="874" selection-start-column="8" selection-end-line="874" selection-end-column="8" />
+        <state relative-caret-position="11296">
+          <caret line="706" column="24" lean-forward="true" selection-start-line="706" selection-start-column="24" selection-end-line="706" selection-end-column="24" />
           <folding>
             <element signature="e#78#137#0" expanded="true" />
           </folding>
