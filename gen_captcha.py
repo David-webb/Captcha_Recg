@@ -197,6 +197,28 @@ class gencaptcha_final():
         return new_lc, 0, new_rc, 44
         pass
 
+    def checkboxesright(self, box=None, img=None):
+	"""opencv画出框,检查box的位置是否正确, 肉眼观察"""
+	imgdir = "captcha_6-char_test_30w_noline/"
+	jsonpath = "captcha_6-char_test_30w_noline_label.json"
+	imglist = os.listdir(imgdir)
+	with open(jsonpath, "r")as rd:
+	     label_box_dic = json.loads(rd.read())
+	for img in imglist:
+	    # print img
+	    imgpath = os.path.join(imgdir, img)
+	    imgobj = cv2.imread(imgpath)
+            img_key = img.replace(".jpg", "")
+	    #if img in label_box_dic.keys():
+	    #	print "hit"
+	    boxlist =  label_box_dic[img_key]['boxlist']
+	    for i in range(6):
+		cv2.rectangle(imgobj, tuple(boxlist[i][:2]), tuple(boxlist[i][2:]), (0,0,255), 1)
+	    imgsavepath = imgpath.replace(".jpg", "_box.jpg")
+	    cv2.imwrite(imgsavepath, imgobj)	    
+	
+	
+
     def getrandomfont(self, isdigit=False):
         """ 从字体池中随机抓一个字体 """
         self.fontpool = self.getfontyptlists()
@@ -426,7 +448,8 @@ class gencaptcha_final():
 
         im_gray = cv2.cvtColor(ans_image, cv2.COLOR_BGR2GRAY)  # 转换成灰度图
         retval, ans_image = cv2.threshold(im_gray, 100, 255, cv2.THRESH_BINARY) # 二值化
-	self.rmeightNeibornoisepoint(ans_image, 6)	# 8领域降噪
+	# self.rmeightNeibornoisepoint(ans_image, 6)	# 8领域降噪
+	#ans_image = cv2.medianBlur(ans_image,3)
 
 	#ans_image = cv2.pyrUp(ans_image)
 	#for i in range(15):
@@ -449,11 +472,11 @@ class gencaptcha_final():
     def run(self):
         label_dic = {}
         # 获取当前目录和标记文件的绝对路径
-        label_filename = os.path.basename(self.savepath)
-        localdirpath = os.path.abspath(".")
-        labelfilepath = os.path.join(localdirpath, "%s_label.json" % label_filename)
+        label_filename = os.path.basename(self.savepath)	# 保存图片的文件夹名称
+        localdirpath = os.path.abspath(".")			# 当前文件夹的绝对路径
+        labelfilepath = os.path.join(localdirpath, "%s_label.json" % label_filename)  # 标记文件的名称: img文件夹名+label.json 
 
-        #
+        # 
         if os.path.exists(labelfilepath):
             with open(labelfilepath)as rd:
                 label_dic = json.loads(rd.read())
@@ -531,10 +554,10 @@ if __name__ == '__main__':
     # tobj.gene_code()
 
     # 测试gencaptcha_final
-    tobj = gencaptcha_final(6, 150000, savepath="/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/captcha_6-char_test_15w_curseline", rotate=True, drawline=True)
+    tobj = gencaptcha_final(6, 300000, savepath="/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/captcha_6-char_test_30w_noline", rotate=True, drawline=False)
     # tobj = gencaptcha_final(mode=6, totalnum=120000, savepath="/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/captcha_1-char_12w", rotate=True)
     tobj.run()
     # tobj.gen_curseline("")
     # 测试字体打印
     # tobj.printusefontpool()
-
+    # tobj.checkboxesright()

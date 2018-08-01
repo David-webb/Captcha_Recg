@@ -3,7 +3,7 @@
 
 # Created by David Teng on 18-7-4
 
-from sklearn.cluster import AgglomerativeClustering
+from sklearn.cluster import AgglomerativeClustering, DBSCAN
 import scipy.spatial.distance as scidst
 from sklearn import metrics
 import matplotlib
@@ -16,6 +16,7 @@ import Queue
 import os
 import math
 import copy
+import random
 
 class rmBKnoise():
     """
@@ -689,11 +690,14 @@ class rmcurlinebycolor():
         mask_inv = cv2.bitwise_not(mask)
         img1_bg = cv2.bitwise_and(roi, roi, mask=mask)
         img2_fg = cv2.bitwise_and(roi, roi, mask=mask_inv)
+        # img2_fg = cv2.cvtColor(img2_fg, cv2.COLOR_BGR2HSV)  # 转换到HSV空间
         # dst = cv2.add(img2_fg, img2)
         # img1[0:rows, 0:cols] = dst
         # cv2.imshow('res', img2_fg)
         # cv2.waitKey(0)
         # cv2.destroyAllWindows()
+        # print img2_fg
+        img2_fg = self.ehanceimg(img2_fg, 0)
         return img2_fg
 
     def rmeightNeibornoisepoint(self, imgobj):
@@ -861,9 +865,9 @@ class rmcurlinebycolor():
                     imgobj[r, c] = [255, 255, 255]
                     pass
         # print pointslist
-        # cv2.imshow('res', imgobj)
-        # cv2.waitKey(0)
-        # cv2.destroyAllWindows()
+        cv2.imshow('res', imgobj)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
 
         return pointslist
 
@@ -930,10 +934,14 @@ class rmcurlinebycolor():
             # 对两个距离列表分别进行求和，并分别进行归一化
             c_sum = float(sum(clrdist))
             s_sum = float(sum(spcdist))
+            print c_sum
+            print s_sum
             clrdist = [c/c_sum for c in clrdist]
             spcdist = [s/s_sum for s in spcdist]
-            # 按照各0.5的权值叠加颜色距离和实体距离
-            s_c_dist = [0.8*c + 0.2*s for c, s in zip(clrdist, spcdist)]
+
+            # s_c_dist = [0.75*c + 0.25*s for c, s in zip(clrdist, spcdist)]  # # 按照各0.5的权值叠加颜色距离和实体距离:
+            # s_c_dist = [math.sqrt(c**2+s**2) for c, s in zip(clrdist, spcdist)]  # 改进,将(颜色距离,实体距离) 作为新的坐标,计算欧式距离
+            s_c_dist = [c*s for c, s in zip(clrdist, spcdist)]
             return s_c_dist
             pass
 
@@ -973,7 +981,7 @@ class rmcurlinebycolor():
         plt.show()
         pass
 
-    def getbiggestypepointset(self, pointslist, labels):
+    def  getbiggestypepointset(self, pointslist, labels):
         """ 讲聚类后的每一类点投影到x轴，覆盖面积最大的默认是曲线 """
         ansdic = {}
         for p, l in zip(pointslist, labels):
@@ -999,7 +1007,7 @@ class rmcurlinebycolor():
         pass
 
     def rmCurseline_by_Agglocluster(self, imgobj, discalc_mode='color'):
-        """利用聚类算法对mask后的图片进行曲线和字母分离"""
+        """利用层次聚类算法对mask后的图片进行曲线和字母分离"""
         # pointslist, distlist, imgobj = self.rmobjbycolor()
 
         # 数据准备：计算前景点和距离列表
@@ -1008,7 +1016,7 @@ class rmcurlinebycolor():
 
         # 层次聚类
         model = AgglomerativeClustering(n_clusters=7, affinity='precomputed', linkage='average')
-        dist_matrix = scidst.squareform(numpy.array(distlist))
+        dist_matrix = scidst.squareform(numpy.array(distlist))      # 根据距离列表构造距离矩阵
         labels = model.fit_predict(dist_matrix)
         # metrics.silhouette_score(dist_matrix, labels=labels, metric="precomputed") # 轮廓系数，检测聚类质量
         # print len(pointslist), len(labels)
@@ -1026,10 +1034,96 @@ class rmcurlinebycolor():
         # imgobj = cv2.medianBlur(imgobj, 3)    # 中值滤波:效果最好，但是会连带删除部分字体
         # imgobj = cv2.blur(imgobj, (3, 3))     # 平均:效果差
 
-        # cv2.imshow('res', imgobj)
-        # cv2.waitKey(500)
-        # cv2.destroyAllWindows()
 
+        # cv2.namedWindow('res', 0)
+
+        # cv2.imshow('res', imgobj)
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
+        # cv2.waitKey(1)
+        # cv2.waitKey(1)
+        # cv2.waitKey(1)
+        # cv2.waitKey(1)
+        pass
+    
+    def ehanceimg(self, imgobj, mode=0):
+        """ 图片增强的几种尝试
+        mode:
+            0: equalize
+            1: laplace
+            2: logimgenhance
+            3: gamma
+        """
+        # image = imgobj
+        # image_gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+
+        #  直方图均衡增强
+        def equalize(image):
+            # image_equal = cv2.equalizeHist(image_gray)
+            r, g, b = cv2.split(image)
+            r1 = cv2.equalizeHist(r)
+            g1 = cv2.equalizeHist(g)
+            b1 = cv2.equalizeHist(b)
+            image_equal_clo = cv2.merge([r1, g1, b1])
+            return image_equal_clo
+
+        #  拉普拉斯算法增强
+        def laplace(image):
+            kernel = numpy.array([
+                               [0, -1, 0],
+                               [-1, 5, -1],
+                               [0, -1, 0]
+            ])
+            image_lap = cv2.filter2D(image, cv2.CV_8UC3, kernel)
+            return image_lap
+
+        #  对象算法增强
+        def logimgenhance(image):
+            image_log = numpy.uint8(numpy.log(numpy.array(image) + 1))
+            cv2.normalize(image_log, image_log, 0, 255, cv2.NORM_MINMAX)
+            #    转换成8bit图像显示
+            cv2.convertScaleAbs(image_log, image_log)
+            return image_log
+
+        #  伽马变换
+        def gamma(image):
+            fgamma = 2
+            image_gamma = numpy.uint8(numpy.power((numpy.array(image) / 255.0), fgamma) * 255.0)
+            cv2.normalize(image_gamma, image_gamma, 0, 255, cv2.NORM_MINMAX)
+            cv2.convertScaleAbs(image_gamma, image_gamma)
+            return image_gamma
+
+        funclist = (equalize, laplace, logimgenhance, gamma,)
+        func = funclist[mode]
+        imgobj = func(imgobj)
+        # imgobj = equalize(imgobj)
+
+        # cv2.imshow('res', imgobj)
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
+        return imgobj
+
+
+
+    def rmCurseline_by_DBSCANCluster(self, imgobj, discalc_mode='color'):
+        """ 利用密度聚类算法对mask后的图片进行曲线和字母分离"""
+        # 数据准备：计算前景点和距离列表
+        # 其中参数discalc_mode取值可以是color, s_c, space, 分别对应颜色聚类、颜色_实体空间聚类、实体空间聚类
+        pointslist, distlist, imgobj = self.getdistlist_from_frontground(imgobj, discalc_mode=discalc_mode)
+
+        # 层次聚类
+        dist_matrix = scidst.squareform(numpy.array(distlist))  # 根据距离列表构造距离矩阵
+        db = DBSCAN(eps=5, metric='precomputed', min_samples=30)
+        labels = db.fit_predict(dist_matrix)
+        print labels
+        print len(pointslist), len(labels)
+
+        # 根据前景点数据和对应的label画图
+        self.drawpic(pointslist, labels)
+
+        # 找出曲线所在的类（通过投影的方式），将该类的点全部置成背景色
+        curselinepoints = self.getbiggestypepointset(pointslist, labels)
+        self.rmcurselinepoints(imgobj, curselinepoints)
         pass
 
     def run(self):
@@ -1037,13 +1131,13 @@ class rmcurlinebycolor():
         files = os.listdir(dirname)
         abpath = os.path.abspath(dirname)
         rgbdict = {}
-        for f in files[7:]:
+        for f in files[0:]:
             print "start processing file %s......" % f
             fname = os.path.join(abpath, f)
             if not os.path.isdir(fname):
                 imgobj = cv2.imread(fname)
                 self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='color')
-
+                # self.rmCurseline_by_DBSCANCluster(imgobj=imgobj, discalc_mode='color')
         pass
 
 if __name__ == '__main__':
@@ -1085,4 +1179,36 @@ if __name__ == '__main__':
     # robj.rmCurseline_by_Agglocluster()
     robj.run()
 
+
+    # 列出opencv颜色转换的所有颜色空间
+    # flags = [i for i in dir(cv2) if i.startswith('COLOR_')]
+    # from pprint import pprint
+    # pprint(flags)
     pass
+
+
+
+
+
+
+    """
+    颜色空间:
+         'COLOR_BGR2BGR555',
+         'COLOR_BGR2BGR565',
+         'COLOR_BGR2BGRA',      # 3通道转到4通道
+         'COLOR_BGR2GRAY',      # 转成灰度图
+         'COLOR_BGR2HLS',       
+         'COLOR_BGR2HLS_FULL',
+         'COLOR_BGR2HSV',
+         'COLOR_BGR2HSV_FULL',
+         'COLOR_BGR2LAB',
+         'COLOR_BGR2LUV',
+         'COLOR_BGR2RGB',       # 改变3通道的通道顺序
+         'COLOR_BGR2RGBA',      # 转成4通道,并且改变通道顺序
+         'COLOR_BGR2XYZ',
+         'COLOR_BGR2YCR_CB',
+         'COLOR_BGR2YUV',
+         'COLOR_BGR2YUV_I420',
+         'COLOR_BGR2YUV_IYUV',
+         'COLOR_BGR2YUV_YV12',
+    """

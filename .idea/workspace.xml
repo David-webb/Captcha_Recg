@@ -1,947 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1005" />
+    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1013" />
+    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1117" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a6a9b2-39bf-4402-a29e-116671a10e02" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/AABW.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/AAKF.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/AALJ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/AARE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ABJX.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ABMH.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ACAK.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ACAR.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/AGWO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/AJAS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/AJWH.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/AMHE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/APNN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/APTJ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/AQEO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ASQL.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ASSA.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/AUNE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/AXGO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/BAEU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/BAOJ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/BCAJ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/BNGK.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/BODU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/BXAK.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/BZRX.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/CBOZ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/CDBZ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/CDFE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/CEAT.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/CLNP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/CNIO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/COFF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/COSQ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/CULT.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/CXMJ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/CYNW.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/CZID.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DAKN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DASG.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DBAB.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DCSM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DDZI.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DECV.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DEIZ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DIIR.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DJPF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DLAC.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DLMP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DMWL.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DNBN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DNIU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DPEX.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DQHV.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DQTP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DQWH.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DWKJ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DXVD.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DYEL.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/DZJF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/EEMC.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ELDS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/EQTN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ERJU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ERRW.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ESEQ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ETLM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/EUSV.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/EVJF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/EWMD.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/FDEF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/FJOH.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/FJXR.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/FLRV.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/FNNP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/FOPQ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/FORK.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/FPXG.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/FQXL.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/FVAY.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/FWFH.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/FZWH.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/GBRA.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/GCKI.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/GCYY.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/GJZF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/GKVM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/GMLZ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/GNLT.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/GPQI.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/GQJM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/GQOW.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/GSML.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/GWSM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/HBSQ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/HIAY.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/HIBQ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/HJNF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/HMBG.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/HNTK.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/HOAB.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/HPBN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/HQWF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/HSCQ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/HSWE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/HXXC.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/HXYQ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/HZQD.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/IEHM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/IJDA.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/IVKT.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/IVWL.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/IVWM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/IWRY.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/IZVW.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/JAVM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/JCVQ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/JIJG.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/JJBG.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/JNSI.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/JPXQ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/JSDV.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/JTCN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/JTQZ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/JYYE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KAAN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KEDE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KEYF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KFVI.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KGYX.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KHFQ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KJEB.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KLOO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KMHA.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KOHP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KOQE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KPDV.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KSNW.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KSST.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KUAY.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KUXN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KVKU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/KVZB.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/LAIJ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/LBIE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/LBWN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/LOTL.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/LRIE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/LRON.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/LTQR.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/LUYM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/LVKH.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/LZYP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/MAIE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/MDRC.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/MIUA.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/MMXF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/MQLX.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/MRSX.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/MVLR.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/MWIW.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/MXPS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/MYKY.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/MYND.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/MZLT.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/MZUB.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/NFSU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/NGSH.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/NJGA.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/NLCM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/NMTB.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/NRZO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/NSCF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/NSET.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/NSJQ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/NTTU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/NXZX.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/OBSK.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/OFWQ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/OIBC.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/OIEO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ONUE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/OOLE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ORGU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/OSDK.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/OUOR.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/OWIS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/OZKM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/PDDQ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/PFOH.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/PIMI.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/PJVM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/POBI.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/PQZJ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/PWVI.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/PWZX.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/QFOE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/QIZR.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/QLWF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/QPUI.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/QVZU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/QXLD.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/QXOO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/QXPL.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/QZVU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/RAAW.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/RDJS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/RDNQ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/RIYC.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/RJNM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/RNNW.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/RRKF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/RSYR.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/RUIH.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/RXLU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/RZMF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/RZNB.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/SDTC.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/SDXI.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/SEOG.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/SFPV.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/SYGV.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/SYIA.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/SZTZ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/TAJP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/TBPE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/TFKH.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/THKD.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/TJDU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/TJNN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/TJVU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/TOOO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/TSIR.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/TUFP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/TYUS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/UBDJ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/UBMO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/UBZF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/UEOD.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/UFRU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/UKQX.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/UOZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/UPFF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/UPTT.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/URBQ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/USGP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/UTWB.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/UTWP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/UYZF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/UZSC.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/VAIT.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/VFAJ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/VJCA.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/VJTW.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/VMHC.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/WDYH.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/WDYR.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/WESH.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/WLXG.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/WOJE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/WOVS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/WPZN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/WQWZ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/WREN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/WTEL.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/WTEP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/WTNW.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/WUGU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/WXPH.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/WZSS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/XAUP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/XCHE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/XENY.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/XERJ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/XGJT.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/XIBD.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/XNIU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/XPHU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/XRJA.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/XSFN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/XVHX.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/YBFF.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/YDHJ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/YHAP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/YHOA.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/YJDR.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/YLJB.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/YODI.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/YPLT.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/YQDE.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/YRXM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/YVTT.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/YXHZ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/YXSC.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ZDDP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ZDJB.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ZEDL.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ZGLD.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ZIOC.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ZNAI.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ZPAO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ZSWH.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ZUCP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha/ZZMC.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/101.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/102.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/103.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/104.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/105.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/106.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/107.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/108.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/109.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/110.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/111.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/112.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/113.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/114.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/115.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/116.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/117.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/118.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/119.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/120.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/121.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/122.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/123.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/124.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/125.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/126.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/127.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/129.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/130.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/131.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/132.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/133.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/134.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/135.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/136.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/137.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/138.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/139.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/140.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/141.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/142.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/143.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/144.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/145.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/146.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/147.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/148.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/149.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/150.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/151.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/152.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/153.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/154.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/155.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/156.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/157.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/158.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/159.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/160.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/161.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/162.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/163.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/164.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/165.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/166.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/167.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/168.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/169.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/170.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/171.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/172.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/173.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/174.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/175.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/176.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/177.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/178.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/179.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/180.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/181.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/182.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/183.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/184.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/185.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/186.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/187.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/188.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/189.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/190.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/191.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/193.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/194.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/195.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/196.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/197.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/198.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/199.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/200.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/201.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/202.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/203.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/204.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/205.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/206.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/207.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/208.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/209.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/210.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/211.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/212.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/213.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/214.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/215.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/216.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/217.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/218.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/219.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/22.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/220.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/221.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/222.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/223.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/224.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/225.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/226.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/227.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/228.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/229.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/230.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/231.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/232.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/233.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/234.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/235.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/236.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/237.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/238.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/239.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/24.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/241.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/242.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/243.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/244.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/245.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/246.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/247.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/248.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/249.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/250.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/251.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/252.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/253.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/254.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/255.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/256.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/257.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/258.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/259.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/26.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/260.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/261.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/262.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/263.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/264.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/265.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/266.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/267.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/268.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/269.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/27.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/270.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/271.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/272.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/273.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/274.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/275.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/276.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/277.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/278.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/279.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/28.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/280.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/281.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/282.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/283.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/284.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/285.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/286.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/287.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/288.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/289.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/29.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/290.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/291.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/292.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/293.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/294.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/295.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/296.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/297.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/298.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/299.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/300.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/301.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/302.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/303.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/304.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/305.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/306.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/307.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/308.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/309.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/31.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/310.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/311.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/312.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/313.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/314.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/315.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/316.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/317.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/318.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/319.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/320.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/321.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/322.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/323.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/324.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/325.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/326.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/327.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/328.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/329.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/33.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/330.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/331.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/332.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/333.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/334.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/335.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/336.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/337.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/338.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/339.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/34.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/340.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/341.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/342.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/343.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/344.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/345.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/346.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/347.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/348.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/349.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/35.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/350.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/351.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/352.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/353.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/354.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/355.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/356.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/357.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/358.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/359.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/36.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/360.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/361.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/362.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/363.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/364.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/365.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/366.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/367.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/368.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/369.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/37.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/370.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/371.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/372.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/373.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/374.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/375.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/376.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/377.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/378.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/379.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/38.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/380.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/381.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/382.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/383.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/384.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/385.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/386.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/387.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/388.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/389.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/39.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/390.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/391.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/392.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/393.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/394.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/395.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/396.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/397.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/398.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/399.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/401.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/402.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/403.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/404.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/405.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/406.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/407.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/408.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/409.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/41.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/410.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/411.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/412.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/413.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/414.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/415.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/416.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/417.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/418.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/419.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/42.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/420.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/421.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/422.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/423.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/424.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/425.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/426.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/427.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/428.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/429.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/43.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/430.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/431.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/432.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/433.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/434.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/435.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/436.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/437.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/438.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/439.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/44.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/440.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/441.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/442.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/443.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/444.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/445.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/446.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/447.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/448.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/449.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/45.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/450.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/451.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/452.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/453.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/454.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/455.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/456.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/457.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/458.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/459.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/46.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/460.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/461.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/462.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/463.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/464.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/465.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/466.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/467.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/468.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/469.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/470.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/471.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/472.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/473.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/474.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/475.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/476.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/477.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/478.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/479.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/48.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/480.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/481.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/482.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/483.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/484.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/485.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/486.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/487.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/488.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/489.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/49.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/490.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/491.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/492.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/493.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/494.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/495.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/496.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/497.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/498.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/499.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/500.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/501.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/502.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/503.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/504.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/505.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/506.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/507.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/508.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/509.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/51.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/510.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/511.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/513.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/514.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/515.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/516.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/517.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/518.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/519.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/52.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/520.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/521.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/522.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/523.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/524.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/525.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/526.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/527.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/528.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/529.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/53.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/530.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/531.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/532.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/533.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/534.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/535.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/536.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/537.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/538.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/539.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/54.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/540.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/541.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/542.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/543.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/544.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/545.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/546.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/547.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/548.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/549.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/55.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/550.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/551.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/552.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/553.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/554.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/555.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/556.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/557.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/558.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/559.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/56.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/560.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/561.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/562.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/563.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/564.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/565.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/566.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/567.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/568.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/569.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/57.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/570.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/571.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/572.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/573.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/574.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/575.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/576.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/577.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/578.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/579.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/58.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/580.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/581.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/582.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/583.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/584.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/585.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/586.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/587.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/588.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/589.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/59.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/590.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/591.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/592.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/593.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/594.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/595.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/596.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/597.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/598.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/599.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/60.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/600.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/601.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/602.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/603.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/604.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/605.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/606.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/607.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/608.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/609.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/61.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/610.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/611.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/612.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/613.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/614.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/615.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/616.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/617.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/618.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/619.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/62.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/620.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/621.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/63.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/64.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/65.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/66.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/67.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/68.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/69.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/70.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/71.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/72.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/73.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/74.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/75.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/76.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/77.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/78.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/79.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/80.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/81.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/82.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/83.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/84.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/85.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/86.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/87.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/88.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/89.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/90.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/91.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/92.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/93.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/94.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/95.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/97.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/98.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/99.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/captcha_1-char_label.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/gen_captcha.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/idencode.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/test_label.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/tmp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cnnforcaptcha/tmp1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/font.txt" beforeDir="false" afterPath="$PROJECT_DIR$/font.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gen_captcha.py" beforeDir="false" afterPath="$PROJECT_DIR$/gen_captcha.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/removeBKnoise.py" beforeDir="false" afterPath="$PROJECT_DIR$/removeBKnoise.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sogoucapture/funcCruse/5_c.jpg" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -959,20 +25,20 @@
       <file leaf-file-name="removeBKnoise.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="935" column="35" selection-start-line="935" selection-start-column="35" selection-end-line="935" selection-end-column="35" />
+            <state relative-caret-position="10">
+              <caret line="874" column="8" selection-start-line="874" selection-start-column="8" selection-end-line="874" selection-end-column="8" />
               <folding>
-                <element signature="e#78#129#0" expanded="true" />
+                <element signature="e#78#137#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-1247972723/cv2/__init__.py">
+      <file leaf-file-name="random.py" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/lib/python2.7/random.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="1109" column="4" selection-start-line="1109" selection-start-column="4" selection-end-line="1109" selection-end-column="4" />
+            <state relative-caret-position="210">
+              <caret line="889" selection-start-line="889" selection-end-line="889" />
             </state>
           </provider>
         </entry>
@@ -988,8 +54,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>()</find>
-      <find>_cut_images</find>
       <find>split_seq</find>
       <find>split_images</find>
       <find>binarizing</find>
@@ -1018,6 +82,8 @@
       <find>21</find>
       <find>ImageFont.truetype</find>
       <find>picpointsdic</find>
+      <find>0.5</find>
+      <find>np.</find>
     </findStrings>
     <replaceStrings>
       <replace>(self)</replace>
@@ -1028,6 +94,7 @@
       <replace>old_r</replace>
       <replace>r</replace>
       <replace>ansdic</replace>
+      <replace>numpy.</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -1094,24 +161,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.removeBKnoise">
-    <configuration name="createCaptcha" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="captcha" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/createCaptcha.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="gen_captcha (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="captcha" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -1143,6 +192,24 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cnnforcaptcha/gen_captcha.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="hierarchical" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="captcha" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="/usr/local/lib/python2.7/dist-packages/sklearn/cluster" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="/usr/local/lib/python2.7/dist-packages/sklearn/cluster/hierarchical.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -1198,19 +265,19 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <list>
-      <item itemvalue="Python.createCaptcha" />
       <item itemvalue="Python.removeBKnoise" />
       <item itemvalue="Python.gen_captcha" />
       <item itemvalue="Python.gen_captcha (1)" />
       <item itemvalue="Python tests.Nosetests in captcha_6-char_test" />
+      <item itemvalue="Python.hierarchical" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.removeBKnoise" />
+        <item itemvalue="Python.hierarchical" />
         <item itemvalue="Python.gen_captcha (1)" />
         <item itemvalue="Python tests.Nosetests in captcha_6-char_test" />
         <item itemvalue="Python.gen_captcha" />
-        <item itemvalue="Python.createCaptcha" />
       </list>
     </recent_temporary>
   </component>
@@ -1294,8 +361,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/16.jpg" />
-    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/17.jpg" />
     <entry file="file://$PROJECT_DIR$/captcha_6-char_test/18.jpg" />
     <entry file="file://$PROJECT_DIR$/captcha_6-char_test/19.jpg" />
     <entry file="file://$PROJECT_DIR$/captcha_6-char_test/20.jpg" />
@@ -1359,19 +424,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/sklearn/cluster/hierarchical.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-182">
+          <caret line="672" column="26" selection-start-line="672" selection-start-column="26" selection-end-line="672" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-1247972723/cv2/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
-          <caret line="1109" column="4" selection-start-line="1109" selection-start-column="4" selection-end-line="1109" selection-end-column="4" />
+          <caret line="2133" column="4" selection-start-line="2133" selection-start-column="4" selection-end-line="2133" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="889" selection-start-line="889" selection-end-line="889" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="935" column="35" selection-start-line="935" selection-start-column="35" selection-end-line="935" selection-end-column="35" />
+        <state relative-caret-position="10">
+          <caret line="874" column="8" selection-start-line="874" selection-start-column="8" selection-end-line="874" selection-end-column="8" />
           <folding>
-            <element signature="e#78#129#0" expanded="true" />
+            <element signature="e#78#137#0" expanded="true" />
           </folding>
         </state>
       </provider>
