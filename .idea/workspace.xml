@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1039" />
-    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1145" />
-    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="704" />
+    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1096" />
+    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1167" />
+    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="761" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a6a9b2-39bf-4402-a29e-116671a10e02" name="Default" comment="">
@@ -25,10 +25,10 @@
       <file leaf-file-name="removeBKnoise.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="970" column="21" selection-start-line="970" selection-start-column="21" selection-end-line="970" selection-end-column="21" />
+            <state relative-caret-position="511">
+              <caret line="1182" column="26" lean-forward="true" selection-start-line="1182" selection-start-column="26" selection-end-line="1182" selection-end-column="26" />
               <folding>
-                <element signature="e#78#137#0" expanded="true" />
+                <element signature="e#78#145#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -437,10 +437,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="970" column="21" selection-start-line="970" selection-start-column="21" selection-end-line="970" selection-end-column="21" />
+        <state relative-caret-position="511">
+          <caret line="1182" column="26" lean-forward="true" selection-start-line="1182" selection-start-column="26" selection-end-line="1182" selection-end-column="26" />
           <folding>
-            <element signature="e#78#137#0" expanded="true" />
+            <element signature="e#78#145#0" expanded="true" />
           </folding>
         </state>
       </provider>

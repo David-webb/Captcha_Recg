@@ -3,7 +3,7 @@
 
 # Created by David Teng on 18-7-4
 
-from sklearn.cluster import AgglomerativeClustering, DBSCAN
+from sklearn.cluster import AgglomerativeClustering, DBSCAN, KMeans
 import scipy.spatial.distance as scidst
 from sklearn import metrics
 import matplotlib
@@ -675,6 +675,63 @@ class rmcurselinewithscanning():
 
 class rmcurlinebycolor():
 
+    def ehanceimg(self, imgobj, mode=0):
+        """ 图片增强的几种尝试
+        mode:
+            0: equalize
+            1: laplace
+            2: logimgenhance
+            3: gamma
+        """
+        # image = imgobj
+        # image_gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+
+        #  直方图均衡增强
+        def equalize(image):
+            # image_equal = cv2.equalizeHist(image_gray)
+            r, g, b = cv2.split(image)
+            r1 = cv2.equalizeHist(r)
+            g1 = cv2.equalizeHist(g)
+            b1 = cv2.equalizeHist(b)
+            image_equal_clo = cv2.merge([r1, g1, b1])
+            return image_equal_clo
+
+        #  拉普拉斯算法增强
+        def laplace(image):
+            kernel = numpy.array([
+                               [0, -1, 0],
+                               [-1, 5, -1],
+                               [0, -1, 0]
+            ])
+            image_lap = cv2.filter2D(image, cv2.CV_8UC3, kernel)
+            return image_lap
+
+        #  对象算法增强
+        def logimgenhance(image):
+            image_log = numpy.uint8(numpy.log(numpy.array(image) + 1))
+            cv2.normalize(image_log, image_log, 0, 255, cv2.NORM_MINMAX)
+            #    转换成8bit图像显示
+            cv2.convertScaleAbs(image_log, image_log)
+            return image_log
+
+        #  伽马变换
+        def gamma(image):
+            fgamma = 2
+            image_gamma = numpy.uint8(numpy.power((numpy.array(image) / 255.0), fgamma) * 255.0)
+            cv2.normalize(image_gamma, image_gamma, 0, 255, cv2.NORM_MINMAX)
+            cv2.convertScaleAbs(image_gamma, image_gamma)
+            return image_gamma
+
+        funclist = (equalize, laplace, logimgenhance, gamma,)
+        func = funclist[mode]
+        imgobj = func(imgobj)
+        # imgobj = equalize(imgobj)
+
+        # cv2.imshow('res', imgobj)
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
+        return imgobj
+
 
     def getfrontground(self, imgobj):
         """ 获取验证码图片的前景图中的字母和曲线 """
@@ -1018,7 +1075,7 @@ class rmcurlinebycolor():
         max = 0
         maxk = 0
         for k, v in ansdic.items():
-            v = [i[1] for i in v]
+            v = [i[1] for i in v]   # 投影到x轴
             if len(set(v)) > max:
                 max = len(set(v))
                 maxk = k
@@ -1051,7 +1108,7 @@ class rmcurlinebycolor():
         self.drawpic(pointslist, labels)
 
         # 找出曲线所在的类（通过投影的方式），将该类的点全部置成背景色
-        curselinepoints, biggestLabels, lable_plist = self.getbiggestypepointset(pointslist, labels)
+        curselinepoints, biggestLabels, lable_pdict = self.getbiggestypepointset(pointslist, labels)
 
         # self.rmcurselinepoints(imgobj, curselinepoints)
         # self.drawpic(curselinepoints, biggestLabels)
@@ -1074,67 +1131,8 @@ class rmcurlinebycolor():
         # cv2.waitKey(1)
         pass
     
-    def ehanceimg(self, imgobj, mode=0):
-        """ 图片增强的几种尝试
-        mode:
-            0: equalize
-            1: laplace
-            2: logimgenhance
-            3: gamma
-        """
-        # image = imgobj
-        # image_gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
-
-        #  直方图均衡增强
-        def equalize(image):
-            # image_equal = cv2.equalizeHist(image_gray)
-            r, g, b = cv2.split(image)
-            r1 = cv2.equalizeHist(r)
-            g1 = cv2.equalizeHist(g)
-            b1 = cv2.equalizeHist(b)
-            image_equal_clo = cv2.merge([r1, g1, b1])
-            return image_equal_clo
-
-        #  拉普拉斯算法增强
-        def laplace(image):
-            kernel = numpy.array([
-                               [0, -1, 0],
-                               [-1, 5, -1],
-                               [0, -1, 0]
-            ])
-            image_lap = cv2.filter2D(image, cv2.CV_8UC3, kernel)
-            return image_lap
-
-        #  对象算法增强
-        def logimgenhance(image):
-            image_log = numpy.uint8(numpy.log(numpy.array(image) + 1))
-            cv2.normalize(image_log, image_log, 0, 255, cv2.NORM_MINMAX)
-            #    转换成8bit图像显示
-            cv2.convertScaleAbs(image_log, image_log)
-            return image_log
-
-        #  伽马变换
-        def gamma(image):
-            fgamma = 2
-            image_gamma = numpy.uint8(numpy.power((numpy.array(image) / 255.0), fgamma) * 255.0)
-            cv2.normalize(image_gamma, image_gamma, 0, 255, cv2.NORM_MINMAX)
-            cv2.convertScaleAbs(image_gamma, image_gamma)
-            return image_gamma
-
-        funclist = (equalize, laplace, logimgenhance, gamma,)
-        func = funclist[mode]
-        imgobj = func(imgobj)
-        # imgobj = equalize(imgobj)
-
-        # cv2.imshow('res', imgobj)
-        # cv2.waitKey(0)
-        # cv2.destroyAllWindows()
-        return imgobj
-
-
 
     def rmCurseline_by_DBSCANCluster(self, imgobj, discalc_mode='color'):
-        """ 利用密度聚类算法对mask后的图片进行曲线和字母分离"""
         # 数据准备：计算前景点和距离列表
         # 其中参数discalc_mode取值可以是color, s_c, space, 分别对应颜色聚类、颜色_实体空间聚类、实体空间聚类
         pointslist, distlist, imgobj = self.getdistlist_from_frontground(imgobj, discalc_mode=discalc_mode)
@@ -1150,9 +1148,43 @@ class rmcurlinebycolor():
         self.drawpic(pointslist, labels)
 
         # 找出曲线所在的类（通过投影的方式），将该类的点全部置成背景色
-        curselinepoints = self.getbiggestypepointset(pointslist, labels)
-        self.rmcurselinepoints(imgobj, curselinepoints)
+        # curselinepoints = self.getbiggestypepointset(pointslist, labels)
+        # self.rmcurselinepoints(imgobj, curselinepoints)
         pass
+
+    def rmCurseline_by_Kmeans(self, imgobj, discalc_mode='color'):
+        """ 利用密度聚类算法对mask后的图片进行曲线和字母分离"""
+        # 数据准备：计算前景点和距离列表
+        # 其中参数discalc_mode取值可以是color, s_c, space, 分别对应颜色聚类、颜色_实体空间聚类、实体空间聚类
+        for it in range(2):
+            imgobj = self.getfrontground(imgobj)
+            # print imgobj[0,:]
+            pointslist = self.getpointslist(imgobj)
+            plist = [p[:2] for p in pointslist]
+            clist = [p[2] for p in pointslist]
+            estimator = KMeans(n_clusters=6)
+            labels = estimator.fit_predict(clist)
+
+            # print labels
+            # print len(pointslist), len(labels)
+
+            # 根据前景点数据和对应的label画图
+            # self.drawpic(plist, labels)
+
+            # 找出曲线所在的类（通过投影的方式），将该类的点全部置成背景色
+            curselinepoints, biggestLabels, lable_pdict = self.getbiggestypepointset(plist, labels)
+            self.rmcurselinepoints(imgobj, curselinepoints)
+            # imgobj = cv2.medianBlur(imgobj, 3)  # 中值滤波:效果最好，但是会连带删除部分字体
+
+
+            cv2.imshow('res', imgobj)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
+            cv2.waitKey(1)
+            cv2.waitKey(1)
+            cv2.waitKey(1)
+            cv2.waitKey(1)
+            pass
 
     def run(self):
         dirname = "sogoucapture/classicCaptcha"
@@ -1164,9 +1196,10 @@ class rmcurlinebycolor():
             fname = os.path.join(abpath, f)
             if not os.path.isdir(fname):
                 imgobj = cv2.imread(fname)
-                self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='color')
+                # self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='color')
                 # self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='space')
                 # self.rmCurseline_by_DBSCANCluster(imgobj=imgobj, discalc_mode='s_c')
+                self.rmCurseline_by_Kmeans(imgobj=imgobj, discalc_mode='color')
         pass
 
 if __name__ == '__main__':
