@@ -697,9 +697,9 @@ class rmcurlinebycolor():
         # cv2.waitKey(0)
         # cv2.destroyAllWindows()
         # print img2_fg
-        # img2_fg = self.ehanceimg(img2_fg, 0)
+        # img2_fg = self.ehanceimg(img2_fg, 1)
 
-        # cv2.imshow('res', img3_fg)
+        # cv2.imshow('res', img2_fg)
         # cv2.waitKey(0)
         # cv2.destroyAllWindows()
         return img2_fg
@@ -800,7 +800,7 @@ class rmcurlinebycolor():
         # cv2.imshow('res', imgobj)
         # cv2.waitKey(0)
         # cv2.destroyAllWindows()
-        distlist = self.calspaceORcolordist(pointslist, mode=discalc_mode)  # discalc_mode取值可以是color, s_c, space
+        distlist = self.calspaceORcolordist(pointslist, mode=discalc_mode)      # discalc_mode取值可以是color, s_c, space
         pointslist = [(p[0], p[1]) for p in pointslist]
         return pointslist, distlist, imgobj
         pass
@@ -867,7 +867,7 @@ class rmcurlinebycolor():
         for r in range(h):
             for c in range(w):
                 if list(imgobj[r, c]) != [0, 0, 0]:
-                    pointslist.append((r, c, imgobj[r, c]))
+                    pointslist.append([r, c, imgobj[r, c]])
                 else:						# 这边可能存在问题，如果字符或者曲线是黑色先画出来的，就有可能误删
                     imgobj[r, c] = [255, 255, 255]
                     pass
@@ -915,15 +915,34 @@ class rmcurlinebycolor():
             return M
             pass
 
+        def combinespacedist(p1, p2):
+            """ 将颜色空间和距离空间合并成五维空间进行距离计算 """
+            # 归一化
+            # p1[0] /= 44.0
+            # p1[1] /= 140.0
+            # p1[2] = p1[2] / 255.0
+            # p2[0] /= 44.0
+            # p2[1] /= 140.0
+            # p2[2] = p2[2] / 255.0
+            # 空间扩展
+            p1_sc = numpy.concatenate([p1[:2], p1[2]])
+            p2_sc = numpy.concatenate([p2[:2], p2[2]])
+            sc_dist = numpy.sqrt(numpy.sum(numpy.square(p1_sc, p2_sc)))
+            return sc_dist
+            pass
+
         def space_color_dist(pointslist):
             """ 计算实体_颜色空间的距离: 归一化后，各自权重取0.5 """
             # 分别计算颜色空间距离和实体空间距离
             clrdist = []
             spcdist = []
+            sc_dist = []
             for i, fp in enumerate(pointslist):
                 for ep in pointslist[i + 1:]:
                     clrdist.append(colordist(fp, ep))
                     spcdist.append(spacedist(fp, ep))
+                    # sc_dist.append(combinespacedist(fp, ep))      # 空间合并:失败
+
             # # 将上述上三角矩阵扩充成完整的对角矩阵，并对每行求和
             # c_M = fullmatrix(clrdist, len(pointslist))  # 将上述上三角矩阵扩充成完整的对角矩阵
             # lin_c_sum = map(sum, c_M)  # 对颜色空间距离矩阵的每行求和
@@ -946,9 +965,9 @@ class rmcurlinebycolor():
             clrdist = [c/c_sum for c in clrdist]
             spcdist = [s/s_sum for s in spcdist]
 
-            # s_c_dist = [0.75*c + 0.25*s for c, s in zip(clrdist, spcdist)]  # # 按照各0.5的权值叠加颜色距离和实体距离:
+            s_c_dist = [0.8 * c + 0.2 * s for c, s in zip(clrdist, spcdist)]  # # 按照各0.5的权值叠加颜色距离和实体距离:
             # s_c_dist = [math.sqrt(c**2+s**2) for c, s in zip(clrdist, spcdist)]  # 改进,将(颜色距离,实体距离) 作为新的坐标,计算欧式距离
-            s_c_dist = [c*s for c, s in zip(clrdist, spcdist)]
+            # s_c_dist = [c*s for c, s in zip(clrdist, spcdist)]
             return s_c_dist
             pass
 
@@ -988,7 +1007,7 @@ class rmcurlinebycolor():
         plt.show()
         pass
 
-    def  getbiggestypepointset(self, pointslist, labels):
+    def getbiggestypepointset(self, pointslist, labels):
         """ 讲聚类后的每一类点投影到x轴，覆盖面积最大的默认是曲线 """
         ansdic = {}
         for p, l in zip(pointslist, labels):
@@ -1004,7 +1023,8 @@ class rmcurlinebycolor():
                 max = len(set(v))
                 maxk = k
         print maxk
-        return ansdic[maxk]
+        bigslabes = [label for label in labels if label == maxk]
+        return ansdic[maxk], bigslabes, ansdic
         pass
 
     def rmcurselinepoints(self, imgobj, pointslist):
@@ -1031,8 +1051,10 @@ class rmcurlinebycolor():
         self.drawpic(pointslist, labels)
 
         # 找出曲线所在的类（通过投影的方式），将该类的点全部置成背景色
-        curselinepoints = self.getbiggestypepointset(pointslist, labels)
-        self.rmcurselinepoints(imgobj, curselinepoints)
+        curselinepoints, biggestLabels, lable_plist = self.getbiggestypepointset(pointslist, labels)
+
+        # self.rmcurselinepoints(imgobj, curselinepoints)
+        # self.drawpic(curselinepoints, biggestLabels)
         # kernel = numpy.ones((3,3), numpy.uint8)   #
         # imgobj = cv2.erode(imgobj, kernel, iterations = 1) # 腐蚀
         # imgobj = cv2.dilate(imgobj ,kernel,iterations = 1)	 # 膨胀
@@ -1142,9 +1164,9 @@ class rmcurlinebycolor():
             fname = os.path.join(abpath, f)
             if not os.path.isdir(fname):
                 imgobj = cv2.imread(fname)
-                # self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='color')
-                self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='space')
-                # self.rmCurseline_by_DBSCANCluster(imgobj=imgobj, discalc_mode='space')
+                self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='color')
+                # self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='space')
+                # self.rmCurseline_by_DBSCANCluster(imgobj=imgobj, discalc_mode='s_c')
         pass
 
 if __name__ == '__main__':
@@ -1185,6 +1207,7 @@ if __name__ == '__main__':
     #robj.corrosion() # 腐蚀、膨胀、找轮廓的尝试
     # robj.rmCurseline_by_Agglocluster()
     robj.run()
+
 
 
     # 列出opencv颜色转换的所有颜色空间
