@@ -697,7 +697,11 @@ class rmcurlinebycolor():
         # cv2.waitKey(0)
         # cv2.destroyAllWindows()
         # print img2_fg
-        img2_fg = self.ehanceimg(img2_fg, 0)
+        # img2_fg = self.ehanceimg(img2_fg, 0)
+
+        # cv2.imshow('res', img3_fg)
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
         return img2_fg
 
     def rmeightNeibornoisepoint(self, imgobj):
@@ -772,9 +776,9 @@ class rmcurlinebycolor():
         #cv2.rectangle(imgobj, (x, y), (x+w, y+h),(0,0,255), 2)
 
         imgobj = cv2.bitwise_not(imgobj)
-        cv2.imshow('res', old_th)	# 如果显示的图片太小，可以使用cv2.resize()
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+        # cv2.imshow('res', old_th)	# 如果显示的图片太小，可以使用cv2.resize()
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
     pass
 
     def findcontours(self):
@@ -793,6 +797,9 @@ class rmcurlinebycolor():
         imgobj = self.getfrontground(imgobj)
         # print imgobj[0,:]
         pointslist = self.getpointslist(imgobj)
+        # cv2.imshow('res', imgobj)
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
         distlist = self.calspaceORcolordist(pointslist, mode=discalc_mode)  # discalc_mode取值可以是color, s_c, space
         pointslist = [(p[0], p[1]) for p in pointslist]
         return pointslist, distlist, imgobj
@@ -848,7 +855,7 @@ class rmcurlinebycolor():
             #     cv2.imwrite("%s_c.jpg" % fname, imgobj)
             # print "end processing file %s......\n" % f
 
-    def getpointslist(self,imgobj):
+    def getpointslist(self, imgobj):
         """ mask后的图片中提取对应的点
         返回pointlist=[(x, y, [*,*,*]), ...]
         """
@@ -865,9 +872,9 @@ class rmcurlinebycolor():
                     imgobj[r, c] = [255, 255, 255]
                     pass
         # print pointslist
-        cv2.imshow('res', imgobj)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+        # cv2.imshow('res', imgobj)
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
 
         return pointslist
 
@@ -965,7 +972,7 @@ class rmcurlinebycolor():
         """ """
         f2 = plt.figure(1)
         ax = f2.add_subplot(111)
-        colorlsit = ['b', 'c', 'g','k', 'm', 'r', 'y']
+        colorlsit = ['b', 'c', 'g', 'k', 'm', 'r', 'y']
         picpointsdic = {}
         for p, l in zip(pointslist, labels):
             if l in picpointsdic.keys():
@@ -1009,7 +1016,6 @@ class rmcurlinebycolor():
     def rmCurseline_by_Agglocluster(self, imgobj, discalc_mode='color'):
         """利用层次聚类算法对mask后的图片进行曲线和字母分离"""
         # pointslist, distlist, imgobj = self.rmobjbycolor()
-
         # 数据准备：计算前景点和距离列表
         # 其中参数discalc_mode取值可以是color, s_c, space, 分别对应颜色聚类、颜色_实体空间聚类、实体空间聚类
         pointslist, distlist, imgobj = self.getdistlist_from_frontground(imgobj, discalc_mode=discalc_mode)
@@ -1136,8 +1142,9 @@ class rmcurlinebycolor():
             fname = os.path.join(abpath, f)
             if not os.path.isdir(fname):
                 imgobj = cv2.imread(fname)
-                self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='color')
-                # self.rmCurseline_by_DBSCANCluster(imgobj=imgobj, discalc_mode='color')
+                # self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='color')
+                self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='space')
+                # self.rmCurseline_by_DBSCANCluster(imgobj=imgobj, discalc_mode='space')
         pass
 
 if __name__ == '__main__':
