@@ -754,7 +754,7 @@ class rmcurlinebycolor():
         # cv2.waitKey(0)
         # cv2.destroyAllWindows()
         # print img2_fg
-        # img2_fg = self.ehanceimg(img2_fg, 1)
+        # img2_fg = self.ehanceimg(img2_fg, 0)
 
         # cv2.imshow('res', img2_fg)
         # cv2.waitKey(0)
@@ -1048,7 +1048,7 @@ class rmcurlinebycolor():
         """ """
         f2 = plt.figure(1)
         ax = f2.add_subplot(111)
-        colorlsit = ['b', 'c', 'g', 'k', 'm', 'r', 'y']
+        colorlsit = ['b', 'c', 'g', 'k', 'm', 'r', 'y', 'bc', 'gk', 'mr']
         picpointsdic = {}
         for p, l in zip(pointslist, labels):
             if l in picpointsdic.keys():
@@ -1108,8 +1108,7 @@ class rmcurlinebycolor():
         self.drawpic(pointslist, labels)
 
         # 找出曲线所在的类（通过投影的方式），将该类的点全部置成背景色
-        curselinepoints, biggestLabels, lable_pdict = self.getbiggestypepointset(pointslist, labels)
-
+        # curselinepoints, biggestLabels, lable_pdict = self.getbiggestypepointset(pointslist, labels)
         # self.rmcurselinepoints(imgobj, curselinepoints)
         # self.drawpic(curselinepoints, biggestLabels)
         # kernel = numpy.ones((3,3), numpy.uint8)   #
@@ -1122,13 +1121,7 @@ class rmcurlinebycolor():
 
         # cv2.namedWindow('res', 0)
 
-        # cv2.imshow('res', imgobj)
-        # cv2.waitKey(0)
-        # cv2.destroyAllWindows()
-        # cv2.waitKey(1)
-        # cv2.waitKey(1)
-        # cv2.waitKey(1)
-        # cv2.waitKey(1)
+        # self.cvshowimg(imgobj)
         pass
     
 
@@ -1139,31 +1132,51 @@ class rmcurlinebycolor():
 
         # 层次聚类
         dist_matrix = scidst.squareform(numpy.array(distlist))  # 根据距离列表构造距离矩阵
-        db = DBSCAN(eps=5, metric='precomputed', min_samples=30)
+        db = DBSCAN(eps=5, metric='precomputed', min_samples=20)
         labels = db.fit_predict(dist_matrix)
-        print labels
-        print len(pointslist), len(labels)
+        # print labels
+        # print len(pointslist), len(labels)
 
         # 根据前景点数据和对应的label画图
         self.drawpic(pointslist, labels)
 
         # 找出曲线所在的类（通过投影的方式），将该类的点全部置成背景色
-        # curselinepoints = self.getbiggestypepointset(pointslist, labels)
+        curselinepoints, biggestLabels, lable_pdict = self.getbiggestypepointset(pointslist, labels)
+        # self.drawpic(curselinepoints, biggestLabels)
         # self.rmcurselinepoints(imgobj, curselinepoints)
         pass
+
+
+    def cvshowimg(self, imgobj):
+        cv2.imshow('res', imgobj)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+        cv2.waitKey(1)
+        cv2.waitKey(1)
+        cv2.waitKey(1)
+        cv2.waitKey(1)
 
     def rmCurseline_by_Kmeans(self, imgobj, discalc_mode='color'):
         """ 利用密度聚类算法对mask后的图片进行曲线和字母分离"""
         # 数据准备：计算前景点和距离列表
         # 其中参数discalc_mode取值可以是color, s_c, space, 分别对应颜色聚类、颜色_实体空间聚类、实体空间聚类
-        for it in range(2):
-            imgobj = self.getfrontground(imgobj)
+        bk_imgobj = self.getfrontground(imgobj)
+        img_tmp = bk_imgobj
+        for it in range(10):
             # print imgobj[0,:]
-            pointslist = self.getpointslist(imgobj)
-            plist = [p[:2] for p in pointslist]
-            clist = [p[2] for p in pointslist]
-            estimator = KMeans(n_clusters=6)
-            labels = estimator.fit_predict(clist)
+            pointslist = self.getpointslist(img_tmp)
+            plist = [p[:2] for p in pointslist]     # 实体坐标
+            clist = [p[2] for p in pointslist]      # 颜色坐标
+
+            datalist = []
+            n_cluster = 7
+            if discalc_mode == 'color':
+                datalist = clist
+                n_cluster = 10
+            elif discalc_mode == 'space':
+                datalist = plist
+            estimator = KMeans(n_clusters=n_cluster+it)
+            labels = estimator.fit_predict(datalist)
 
             # print labels
             # print len(pointslist), len(labels)
@@ -1173,18 +1186,22 @@ class rmcurlinebycolor():
 
             # 找出曲线所在的类（通过投影的方式），将该类的点全部置成背景色
             curselinepoints, biggestLabels, lable_pdict = self.getbiggestypepointset(plist, labels)
-            self.rmcurselinepoints(imgobj, curselinepoints)
+            self.rmcurselinepoints(img_tmp, curselinepoints)
+            # 闭运算:先膨胀再腐蚀,这是为了重描被误删的字符部分
+            if not it % 2:
+                img2gray = cv2.cvtColor(img_tmp, cv2.COLOR_BGR2GRAY)
+                ret, mask = cv2.threshold(img2gray, 100, 255, cv2.THRESH_BINARY)
+                mask = cv2.bitwise_not(mask)
+                kernel = numpy.ones((3, 3), numpy.uint8)
+                mask_inv = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
+                img_tmp = cv2.bitwise_and(bk_imgobj, bk_imgobj, mask_inv)
+            # self.cvshowimg(img_tmp)
             # imgobj = cv2.medianBlur(imgobj, 3)  # 中值滤波:效果最好，但是会连带删除部分字体
-
-
-            cv2.imshow('res', imgobj)
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
-            cv2.waitKey(1)
-            cv2.waitKey(1)
-            cv2.waitKey(1)
-            cv2.waitKey(1)
-            pass
+            # self.cvshowimg(imgobj)
+        # img_tmp = cv2.medianBlur(img_tmp, 3)  # 中值滤波:效果最好，但是会连带删除部分字体
+        self.cvshowimg(img_tmp)
+        return imgobj
+        pass
 
     def run(self):
         dirname = "sogoucapture/classicCaptcha"
@@ -1199,7 +1216,21 @@ class rmcurlinebycolor():
                 # self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='color')
                 # self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='space')
                 # self.rmCurseline_by_DBSCANCluster(imgobj=imgobj, discalc_mode='s_c')
-                self.rmCurseline_by_Kmeans(imgobj=imgobj, discalc_mode='color')
+                imgobj = self.rmCurseline_by_Kmeans(imgobj=imgobj, discalc_mode='color')
+
+                # imgobj = self.rmCurseline_by_Kmeans(imgobj=imgobj, discalc_mode='space')
+                # self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='space')
+                # self.rmCurseline_by_DBSCANCluster(imgobj=imgobj, discalc_mode='space')
+        pass
+
+    def littlejoke(self, imgpath = "0802_1.jpg"):
+        imgobj = cv2.imread(imgpath)
+        h, w, channel = imgobj.shape
+        imgobj = imgobj[550:560, 300:450]
+        for _ in range(1):
+            imgobj = self.ehanceimg(imgobj, 3)
+            imgobj = self.ehanceimg(imgobj)
+        self.cvshowimg(imgobj)
         pass
 
 if __name__ == '__main__':
@@ -1240,7 +1271,7 @@ if __name__ == '__main__':
     #robj.corrosion() # 腐蚀、膨胀、找轮廓的尝试
     # robj.rmCurseline_by_Agglocluster()
     robj.run()
-
+    # robj.littlejoke()
 
 
     # 列出opencv颜色转换的所有颜色空间

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1096" />
-    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1167" />
+    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1180" />
     <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="761" />
   </component>
   <component name="ChangeListManager">
@@ -25,11 +25,20 @@
       <file leaf-file-name="removeBKnoise.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
-              <caret line="1182" column="26" lean-forward="true" selection-start-line="1182" selection-start-column="26" selection-end-line="1182" selection-end-column="26" />
+            <state relative-caret-position="560">
+              <caret line="1192" column="80" lean-forward="true" selection-start-line="1192" selection-start-column="80" selection-end-line="1192" selection-end-column="80" />
               <folding>
                 <element signature="e#78#145#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-1247972723/cv2/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="202">
+              <caret line="1829" column="7" selection-start-line="1829" selection-start-column="7" selection-end-line="1829" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -107,9 +116,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="-4" />
-    <option name="width" value="1920" />
-    <option name="height" value="1084" />
+    <option name="x" value="150" />
+    <option name="y" value="124" />
+    <option name="width" value="958" />
+    <option name="height" value="1076" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -421,13 +431,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-1247972723/cv2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="2133" column="4" selection-start-line="2133" selection-start-column="4" selection-end-line="2133" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/lib/python2.7/random.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -435,10 +438,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-1247972723/cv2/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="1829" column="7" selection-start-line="1829" selection-start-column="7" selection-end-line="1829" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="1182" column="26" lean-forward="true" selection-start-line="1182" selection-start-column="26" selection-end-line="1182" selection-end-column="26" />
+        <state relative-caret-position="560">
+          <caret line="1192" column="80" lean-forward="true" selection-start-line="1192" selection-start-column="80" selection-end-line="1192" selection-end-column="80" />
           <folding>
             <element signature="e#78#145#0" expanded="true" />
           </folding>
