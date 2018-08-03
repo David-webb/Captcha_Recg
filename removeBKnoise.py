@@ -1235,7 +1235,7 @@ class rmcurlinebycolor():
             curselinepoints, biggestLabels, label_pdict = self.getbiggestypepointset(plist, labels)
 	    if it == 0:  # 保存最核心的curseline点集合
 		first_cursepoints = curselinepoints
-	    if it > 1:   # 不能再用投影,要重新计算可疑曲线的点集合
+	    if it > 0:   # 不能再用投影,要重新计算可疑曲线的点集合
     		curselinepoints = self.freshkmeanscurselinepoints(first_cursepoints, label_pdict, bk_imgobj)
             
 	    # 删除曲线点集合
