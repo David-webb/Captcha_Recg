@@ -177,15 +177,15 @@ class gencaptcha_final():
         # 右上的点
         rightop_c = leftop_c + width
         rightop_r = leftop_r
-        
+
         # 左下的点
         leftbottom_c = leftop_c
         leftbottom_r = leftop_r + height
-        
+
         # 右下的点
         rightbottom_c = leftop_c + width
         rightbottom_r = leftop_r + height
-        
+
         lt_c, lt_r = self.pixelrotate(leftop_c, leftop_r, center_c, center_r, angle)
         rt_c, rt_r = self.pixelrotate(rightop_c, rightop_r, center_c, center_r, angle)
         lb_c, lb_r = self.pixelrotate(leftbottom_c, leftbottom_r, center_c, center_r, angle)
@@ -198,26 +198,26 @@ class gencaptcha_final():
         pass
 
     def checkboxesright(self, box=None, img=None):
-	"""opencv画出框,检查box的位置是否正确, 肉眼观察"""
-	imgdir = "captcha_6-char_test_30w_noline/"
-	jsonpath = "captcha_6-char_test_30w_noline_label.json"
-	imglist = os.listdir(imgdir)
-	with open(jsonpath, "r")as rd:
-	     label_box_dic = json.loads(rd.read())
-	for img in imglist:
-	    # print img
-	    imgpath = os.path.join(imgdir, img)
-	    imgobj = cv2.imread(imgpath)
+        """opencv画出框,检查box的位置是否正确, 肉眼观察"""
+        imgdir = "captcha_6-char_test_30w_noline/"
+        jsonpath = "captcha_6-char_test_30w_noline_label.json"
+        imglist = os.listdir(imgdir)
+        with open(jsonpath, "r")as rd:
+            label_box_dic = json.loads(rd.read())
+        for img in imglist:
+            # print img
+            imgpath = os.path.join(imgdir, img)
+            imgobj = cv2.imread(imgpath)
             img_key = img.replace(".jpg", "")
-	    #if img in label_box_dic.keys():
-	    #	print "hit"
-	    boxlist =  label_box_dic[img_key]['boxlist']
-	    for i in range(6):
-		cv2.rectangle(imgobj, tuple(boxlist[i][:2]), tuple(boxlist[i][2:]), (0,0,255), 1)
-	    imgsavepath = imgpath.replace(".jpg", "_box.jpg")
-	    cv2.imwrite(imgsavepath, imgobj)	    
-	
-	
+            #if img in label_box_dic.keys():
+            #	print "hit"
+            boxlist =  label_box_dic[img_key]['boxlist']
+            for i in range(6):
+                cv2.rectangle(imgobj, tuple(boxlist[i][:2]), tuple(boxlist[i][2:]), (0,0,255), 1)
+            imgsavepath = imgpath.replace(".jpg", "_box.jpg")
+            cv2.imwrite(imgsavepath, imgobj)
+
+
 
     def getrandomfont(self, isdigit=False):
         """ 从字体池中随机抓一个字体 """
@@ -234,8 +234,8 @@ class gencaptcha_final():
             原始box: [c, 4, c+font_width+6, 44]
         """
         row, col, channel = imgobj.shape
-	row = row if row < 44 else 44
-	col = col if col < 140 else 140
+        row = row if row < 44 else 44
+        col = col if col < 140 else 140
         cmin = 0
         rmin = 4
         cmax = col
@@ -302,7 +302,7 @@ class gencaptcha_final():
             startpoint = (i, int(round(func(i))))
             endpoint = (i+1, int(round(func(i+1))))
             cv2.line(ans_image, startpoint, endpoint, (0, 0, 0), thickness=thickness)
-	cv2.line(ans_image, (0, int(func(0))),(139, int(func(39))), (0,0,0), thickness=1)
+        cv2.line(ans_image, (0, int(func(0))),(139, int(func(39))), (0,0,0), thickness=1)
         # cv2.imshow("正弦曲线", ans_image)
         # cv2.waitKey(0)
         # cv2.destroyAllWindows()
@@ -323,25 +323,25 @@ class gencaptcha_final():
             black_count = 0
             if r-1>=0:
                 black_count += 1 if imgobj[r-1,c] < 200 else 0  # 左上方
-                if c-1>=0: 
+                if c-1>=0:
                     black_count += 1 if imgobj[r-1,c-1] < 200 else 0 # 正上方
                 if c+1<w:
                     black_count += 1 if imgobj[r-1, c+1] < 200 else 0 # 右上方
             if r+1 < h:
                 black_count += 1 if imgobj[r+1, c] < 200 else 0    # 正下方
-                if c-1>=0: 
+                if c-1>=0:
                     black_count += 1 if imgobj[r+1, c-1] < 200 else 0 # 左下方
                 if c+1<w:
                     black_count += 1 if imgobj[r+1, c+1] < 200 else 0 # 右下方
-            
+
             if c-1 >= 0:
                 black_count += 1 if imgobj[r, c-1] < 200 else 0  # 左侧 
             if c+1 < w:
                 black_count += 1 if imgobj[r, c+1] < 200 else 0  # 右侧
-                
+
             if black_count >= ridus:
                 imgobj[r,c] = 0
-            
+
             pass
         h, w = imgobj.shape
         for r in range(h):
@@ -401,8 +401,8 @@ class gencaptcha_final():
                 # 将旋转后漏出的幕布用白色填充
                 fff = Image.new('RGBA', image.size, (255,) * 4)
                 image = Image.composite(image, fff, image)
-		
-            	# 滤镜，边界加强
+
+                # 滤镜，边界加强
                 image = image.filter(ImageFilter.EDGE_ENHANCE_MORE)
                 # 更新旋转后的box
                 # box = self.getrotatedloc(c, r, font_height, font_width, angle=angle)
@@ -442,27 +442,27 @@ class gencaptcha_final():
             # image = image.filter(ImageFilter.EDGE_ENHANCE_MORE)
             result_chars.append(text)
 
-	# 降噪: 主要是边缘平滑
-	# kernel = np.ones((3,3), np.uint8)
-	# ans_image = cv2.morphologyEx(ans_image, cv2.MORPH_CLOSE, kernel)
+        # 降噪: 主要是边缘平滑
+        # kernel = np.ones((3,3), np.uint8)
+        # ans_image = cv2.morphologyEx(ans_image, cv2.MORPH_CLOSE, kernel)
 
         im_gray = cv2.cvtColor(ans_image, cv2.COLOR_BGR2GRAY)  # 转换成灰度图
         retval, ans_image = cv2.threshold(im_gray, 100, 255, cv2.THRESH_BINARY) # 二值化
-	# self.rmeightNeibornoisepoint(ans_image, 6)	# 8领域降噪
-	#ans_image = cv2.medianBlur(ans_image,3)
+        # self.rmeightNeibornoisepoint(ans_image, 6)	# 8领域降噪
+        #ans_image = cv2.medianBlur(ans_image,3)
 
-	#ans_image = cv2.pyrUp(ans_image)
-	#for i in range(15):
-	#    ans_image = cv2.medianBlur(ans_image, 3)
-	#ans_image = cv2.pyrDown(ans_image)
+        #ans_image = cv2.pyrUp(ans_image)
+        #for i in range(15):
+        #    ans_image = cv2.medianBlur(ans_image, 3)
+        #ans_image = cv2.pyrDown(ans_image)
         #retval, ans_image = cv2.threshold(ans_image, 200, 255, cv2.THRESH_BINARY) # 二值化
 
         ## 加干扰线
         if self.draw_line:
             self.gen_curseline(ans_image)       # opencv 画曲线
             # self.gene_line(draw, width, height) # PIL Image 画曲线
-	
-	cv2.imwrite(savefname, ans_image)
+
+        cv2.imwrite(savefname, ans_image)
         # ans_image = Image.fromarray(ans_image.astype('uint8')).convert("RGB")
         # ans_image = ans_image.convert("RGB")
         #ans_image.save(savefname)  # 保存验证码图片

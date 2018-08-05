@@ -590,7 +590,7 @@ class rmcurselinewithscanning():
                 return float(p3[1] - p1[1]) / division
             else:
                 return 0
-            # return float(K)/w*math.cos(fie + w*p3[0])
+                # return float(K)/w*math.cos(fie + w*p3[0])
 
         def getk(A, w, fie, p3):
             return p3[1] - A*math.sin(w*p3[0]+fie)
@@ -701,9 +701,9 @@ class rmcurlinebycolor():
         #  拉普拉斯算法增强
         def laplace(image):
             kernel = numpy.array([
-                               [0, -1, 0],
-                               [-1, 5, -1],
-                               [0, -1, 0]
+                [0, -1, 0],
+                [-1, 5, -1],
+                [0, -1, 0]
             ])
             image_lap = cv2.filter2D(image, cv2.CV_8UC3, kernel)
             return image_lap
@@ -803,30 +803,39 @@ class rmcurlinebycolor():
 
     def corrosion(self, imgobj=None):
         """ 使用腐蚀操作，对细曲线进行去除"""
-        imgobj = cv2.imread("/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/sogoucapture/9")
+        # imgobj = cv2.imread("/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/sogoucapture/9")
+        bk_imgobj = copy.deepcopy(imgobj)
         imgobj = cv2.cvtColor(imgobj, cv2.COLOR_BGR2GRAY)
         ret, imgobj = cv2.threshold(imgobj, 100, 255, cv2.THRESH_BINARY)
         old_th = copy.deepcopy(imgobj)
-        #imgobj = cv2.bitwise_not(imgobj)
-        #kernel = numpy.ones((1,1), numpy.uint8)
-        #imgobj = cv2.erode(imgobj, kernel, iterations = 1) # 腐蚀
-        #imgobj = cv2.bitwise_not(imgobj)
+        # imgobj = cv2.bitwise_not(imgobj)
+        # kernel = numpy.ones((1,1), numpy.uint8)
+        # imgobj = cv2.erode(imgobj, kernel, iterations = 1) # 腐蚀
+        # imgobj = cv2.bitwise_not(imgobj)
         # cv2.imwrite("/home/jingdata/Document/LAB_CODE/corrosion.jpg", imgobj)
-        #imgobj = cv2.dilate(imgobj ,kernel,iterations = 1)	 # 膨胀
+        # imgobj = cv2.dilate(imgobj ,kernel,iterations = 1)	 # 膨胀
         # self.rmeightNeibornoisepoint(imgobj)			# 八领域降噪
         # imgobj = cv2.bitwise_not(imgobj)
-        #imgobj = cv2.Canny(imgobj, 100, 200)  # 找边界
-        imgobj = cv2.bitwise_not(imgobj)      # 找轮廓只能针对黑底白字,并且会对原图操作
-        contours, hierarchy = cv2.findContours(imgobj, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-
+        # imgobj = cv2.Canny(imgobj, 100, 200)  # 找边界
+        imgobj = cv2.bitwise_not(imgobj)
+        contours, hierarchy = cv2.findContours(imgobj, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)  # 找轮廓只能针对黑底白字,并且会对原图操作
+        white_plank = numpy.zeros((44, 140,3), dtype=numpy.uint8)
+        # white_plank = cv2.bitwise_not(white_plank)
+        white_plank[:] = [255, 255, 255]
+        print white_plank.shape, imgobj.shape
         for i in range(0, len(contours)):
             area = cv2.contourArea(contours[i])
             print area
-            #if area > 3000 or area < 200:
-            #    continue
+            if area < 20:
+               continue
             x, y, w, h = cv2.boundingRect(contours[i])
-            cv2.rectangle(old_th, (x,y), (x+w,y+h), (0,0,255), 1)
-
+            print x, y, w, h
+            white_plank[y:y + h, x:x + w] = bk_imgobj[y:y + h, x:x + w]
+            cv2.rectangle(old_th, (x, y), (x+w, y+h), (0, 0, 255), 1)
+        # white_plank = cv2.drawContours(white_plank, contours, 3, (0,0,0), 1)
+        self.cvshowimg(old_th)
+        self.cvshowimg(white_plank)
+        return white_plank
         # print contours
         # imgobj = cv2.bitwise_not(imgobj)
         # cnt = contours[0]
@@ -835,7 +844,7 @@ class rmcurlinebycolor():
         #print x,y,w,h
         #cv2.rectangle(imgobj, (x, y), (x+w, y+h),(0,0,255), 2)
 
-        imgobj = cv2.bitwise_not(imgobj)
+        # imgobj = cv2.bitwise_not(imgobj)
         # cv2.imshow('res', old_th)	# 如果显示的图片太小，可以使用cv2.resize()
         # cv2.waitKey(0)
         # cv2.destroyAllWindows()
@@ -883,37 +892,37 @@ class rmcurlinebycolor():
                 pointslist = [(p[0], p[1]) for p in pointslist]
                 return pointslist, distlist, imgobj
                 # break
-            #     imgobj[imgobj==0] = 255
-            #     for r in range(0, h):
-            #         for c in range(0, w):
-            #             tkey = "_".join("{0}".format(n) for n in imgobj[r, c])
-            #             if tkey == "255_255_255":
-            #                 continue
-            #             if tkey in rgbdict.keys():
-            #                 rgbdict[tkey] += 1
-            #             else:
-            #                 rgbdict[tkey] = 1
-            #     maxv = 0
-            #     maxk = ""
-            #     for k, v in rgbdict.items():
-            #         print k, v
-            #         if v > maxv:
-            #             maxk = k
-            #             maxv = v
-            #         if v == 48:
-            #             print k
-            #
-            #     vlist = [int(i) for i in maxk.split("_")]
-            #
-            #     for r in range(0, h):
-            #         for c in range(0, w):
-            #             # print vlist
-            #             if list(imgobj[r, c]) == [165, 173, 166]:
-            #                 # print imgobj[r,c]
-            #                 imgobj[r, c] = [255, 255, 255]
-            #                 # print imgobj[r,c]
-            #     cv2.imwrite("%s_c.jpg" % fname, imgobj)
-            # print "end processing file %s......\n" % f
+                #     imgobj[imgobj==0] = 255
+                #     for r in range(0, h):
+                #         for c in range(0, w):
+                #             tkey = "_".join("{0}".format(n) for n in imgobj[r, c])
+                #             if tkey == "255_255_255":
+                #                 continue
+                #             if tkey in rgbdict.keys():
+                #                 rgbdict[tkey] += 1
+                #             else:
+                #                 rgbdict[tkey] = 1
+                #     maxv = 0
+                #     maxk = ""
+                #     for k, v in rgbdict.items():
+                #         print k, v
+                #         if v > maxv:
+                #             maxk = k
+                #             maxv = v
+                #         if v == 48:
+                #             print k
+                #
+                #     vlist = [int(i) for i in maxk.split("_")]
+                #
+                #     for r in range(0, h):
+                #         for c in range(0, w):
+                #             # print vlist
+                #             if list(imgobj[r, c]) == [165, 173, 166]:
+                #                 # print imgobj[r,c]
+                #                 imgobj[r, c] = [255, 255, 255]
+                #                 # print imgobj[r,c]
+                #     cv2.imwrite("%s_c.jpg" % fname, imgobj)
+                # print "end processing file %s......\n" % f
 
     def getpointslist(self, imgobj):
         """ mask后的图片中提取对应的点
@@ -1100,9 +1109,9 @@ class rmcurlinebycolor():
         # 数据准备：计算前景点和距离列表
         # 其中参数discalc_mode取值可以是color, s_c, space, 分别对应颜色聚类、颜色_实体空间聚类、实体空间聚类
         pointslist, distlist, imgobj = self.getdistlist_from_frontground(imgobj, discalc_mode=discalc_mode)
-
+        bk_imgobj = copy.deepcopy(imgobj)
         # 层次聚类
-        model = AgglomerativeClustering(n_clusters=10, affinity='precomputed', linkage='average')
+        model = AgglomerativeClustering(n_clusters=7, affinity='precomputed', linkage='average')
         dist_matrix = scidst.squareform(numpy.array(distlist))      # 根据距离列表构造距离矩阵
         labels = model.fit_predict(dist_matrix)
         # metrics.silhouette_score(dist_matrix, labels=labels, metric="precomputed") # 轮廓系数，检测聚类质量
@@ -1113,6 +1122,7 @@ class rmcurlinebycolor():
 
         # 找出曲线所在的类（通过投影的方式），将该类的点全部置成背景色
         curselinepoints, biggestLabels, lable_pdict = self.getbiggestypepointset(pointslist, labels)
+        curselinepoints = self.freshkmeanscurselinepoints(cursepoints=curselinepoints, kmpointsets_dict=lable_pdict, bk_imgobj=imgobj)
         self.rmcurselinepoints(imgobj, curselinepoints)
         # self.drawpic(curselinepoints, biggestLabels)
         self.cvshowimg(imgobj)
@@ -1123,12 +1133,20 @@ class rmcurlinebycolor():
         # imgobj = cv2.medianBlur(imgobj, 3)    # 中值滤波:效果最好，但是会连带删除部分字体
         # imgobj = cv2.blur(imgobj, (3, 3))     # 平均:效果差
 
+        img2gray = cv2.cvtColor(imgobj, cv2.COLOR_BGR2GRAY)
+        ret, mask = cv2.threshold(img2gray, 100, 255, cv2.THRESH_BINARY)
+        mask = cv2.bitwise_not(mask)
+        kernel = numpy.ones((3, 3), numpy.uint8)
+        mask_inv = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
+        self.cvshowimg(mask_inv)
+        imgobj = cv2.bitwise_and(bk_imgobj, bk_imgobj, mask=mask_inv)
+        self.getpointslist(imgobj)  # 只是为了将黑色背景置成白色, 并不是为了获得前景图的像素点
 
         # cv2.namedWindow('res', 0)
-
-        # self.cvshowimg(imgobj)
+        # imgobj = cv2.medianBlur(imgobj, 3)    # 中值滤波:效果最好，但是会连带删除部分字体
+        self.cvshowimg(imgobj)
         pass
-    
+
 
     def rmCurseline_by_DBSCANCluster(self, imgobj, discalc_mode='color'):
         # 数据准备：计算前景点和距离列表
@@ -1162,43 +1180,44 @@ class rmcurlinebycolor():
         cv2.waitKey(1)
 
     def freshkmeanscurselinepoints(self, cursepoints, kmpointsets_dict, bk_imgobj):
-	"""  对kmeans聚类的结果进行修正,找到最合适的点集合 """
-	def averageColordist(crspoints, suspectpointset):
-	    """ 用来计算任意两个点集的平均距离 """
-	    dist_dic = {}
-	    setsdist = 0.0
-	    for p in suspectpointset:
-		k = "%s_%s" % p
-		p_sum = 0.0
-		for cp in crspoints:
-		    p_c = bk_imgobj[p]
-		    cp_c = bk_imgobj[cp]
-            	    p_sum += numpy.sqrt(numpy.sum(numpy.square(p_c - cp_c)))
-		dist_dic[k] = p_sum / len(crspoints)
-	        setsdist += dist_dic[k]
-	    setsdist /= len(suspectpointset)
-	    return dist_dic, setsdist
-	
-	mindist = 900000
-	nearest_label = 0
-	near_dis_dic = {}
-	for k, v in kmpointsets_dict.items():
-	    dis_dic, setsdist = averageColordist(cursepoints, v)
-	    if setsdist < mindist:
-		nearest_label = k
-		near_dis_dic = dis_dic
-		mindist = setsdist
+        """  对kmeans聚类的结果进行修正,找到最合适的点集合 """
+        def averageColordist(crspoints, suspectpointset):
+            """ 用来计算任意两个点集的平均距离 """
+            dist_dic = {}
+            setsdist = 0.0
+            for p in suspectpointset:
+                k = "%s_%s" % p
+                p_sum = 0.0
+                for cp in crspoints:
+                    p_c = bk_imgobj[p]
+                    cp_c = bk_imgobj[cp]
+                    p_sum += numpy.sqrt(numpy.sum(numpy.square(p_c - cp_c)))
+                dist_dic[k] = p_sum / len(crspoints)
+                setsdist += dist_dic[k]
+            setsdist /= len(suspectpointset)
+            return dist_dic, setsdist
 
-	
-	# 对集合中的噪声点进行删除
-	winsets_plist = kmpointsets_dict[nearest_label]
-	for k, v in near_dis_dic.items():
-	    if v > 2 * mindist:
-		noise_p = tuple(k.strip().split("_"))
-		winsets_plist.remove(noise_p)
-	return winsets_plist
-	# return kmpointsets_dict[k], near_dis_dic
-	pass
+        mindist = 900000
+        nearest_label = 0
+        near_dis_dic = {}
+        for k, v in kmpointsets_dict.items():
+            dis_dic, setsdist = averageColordist(cursepoints, v)
+            if setsdist < mindist:
+                nearest_label = k
+                near_dis_dic = dis_dic
+                mindist = setsdist
+
+
+        # 对集合中的噪声点进行删除
+        winsets_plist = kmpointsets_dict[nearest_label]
+        for k, v in near_dis_dic.items():
+            if v > 1 * mindist:
+                noise_p = tuple([int(noip) for noip in k.strip().split("_")])
+                print noise_p
+                winsets_plist.remove(noise_p)
+        return winsets_plist
+        # return kmpointsets_dict[k], near_dis_dic
+        pass
 
 
     def rmCurseline_by_Kmeans(self, imgobj, discalc_mode='color'):
@@ -1208,7 +1227,7 @@ class rmcurlinebycolor():
         bk_imgobj = self.getfrontground(imgobj)
         self.getpointslist(bk_imgobj)
         img_tmp = copy.deepcopy(bk_imgobj)
-	first_cursepoints = []
+        first_cursepoints = []
         for it in range(3):
             # print imgobj[0,:]
             pointslist = self.getpointslist(img_tmp)
@@ -1233,18 +1252,19 @@ class rmcurlinebycolor():
 
             # 找出曲线所在的类（通过投影的方式），将该类的点全部置成背景色
             curselinepoints, biggestLabels, label_pdict = self.getbiggestypepointset(plist, labels)
-	    if it == 0:  # 保存最核心的curseline点集合
-		first_cursepoints = curselinepoints
-	    if it > 0:   # 不能再用投影,要重新计算可疑曲线的点集合
-    		curselinepoints = self.freshkmeanscurselinepoints(first_cursepoints, label_pdict, bk_imgobj)
-            
-	    # 删除曲线点集合
-	    self.rmcurselinepoints(img_tmp, curselinepoints)
-	
+            if it == 0:  # 保存最核心的curseline点集合
+                first_cursepoints = curselinepoints
+            if it > 0:   # 不能再用投影,要重新计算可疑曲线的点集合
+                curselinepoints = self.freshkmeanscurselinepoints(first_cursepoints, label_pdict, bk_imgobj)
+
+            # 删除曲线点集合
+            self.rmcurselinepoints(img_tmp, curselinepoints)
+
             # 闭运算:先膨胀再腐蚀,这是为了重描被误删的字符部分
-            if it and not (it+1) % 2:
+            if it == 1:  # not (it+1) % 2
                 # print it
                 # img_tmp = cv2.medianBlur(img_tmp, 3)  # 中值滤波:效果最好，但是会连带删除部分字体
+                img_tmp = self.corrosion(img_tmp)
                 img2gray = cv2.cvtColor(img_tmp, cv2.COLOR_BGR2GRAY)
                 ret, mask = cv2.threshold(img2gray, 100, 255, cv2.THRESH_BINARY)
                 mask = cv2.bitwise_not(mask)
@@ -1254,11 +1274,15 @@ class rmcurlinebycolor():
                 img_tmp = cv2.bitwise_and(bk_imgobj, bk_imgobj, mask=mask_inv)
                 self.getpointslist(img_tmp)  # 只是为了将黑色背景置成白色, 并不是为了获得前景图的像素点
                 # img_tmp = cv2.medianBlur(img_tmp, 3)  # 中值滤波:效果最好，但是会连带删除部分字体
-            self.cvshowimg(img_tmp)
+            # self.cvshowimg(img_tmp)
+            #
+            if it in [1, 2]:
+                img_tmp = self.corrosion(imgobj=img_tmp)
 
+        # img_tmp = self.corrosion(imgobj=img_tmp)
         self.cvshowimg(img_tmp)
-        img_tmp = cv2.medianBlur(img_tmp, 3)  # 中值滤波:效果最好，但是会连带删除部分字体
-        self.cvshowimg(img_tmp)
+        # img_tmp = cv2.medianBlur(img_tmp, 3)  # 中值滤波:效果最好，但是会连带删除部分字体
+        # self.cvshowimg(img_tmp)
         return imgobj
         pass
 
