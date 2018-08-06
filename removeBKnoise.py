@@ -859,12 +859,12 @@ class rmcurlinebycolor():
             # white_plank[y:y + h, x:x + w] = bk_imgobj[y:y + h, x:x + w]
             cv2.rectangle(old_th, (x, y), (x+w, y+h), (0, 0, 255), 1)
 
-        cv2.drawContours(white_plank, contours[:10], -1, (0, 0, 0), -1)
+        cv2.drawContours(white_plank, contours, -1, (0, 0, 0), -1)
         white_plank = self.turnimg2binary(white_plank)
         mask = cv2.bitwise_not(white_plank)
-        final_img = cv2.bitwise_and(origin_frontimg, origin_frontimg, mask=mask)
+        final_img = cv2.bitwise_and(bk_imgobj, bk_imgobj, mask=mask)
         self.getpointslist(final_img)
-        self.cvshowimg(old_th)
+        # self.cvshowimg(old_th)
         # self.cvshowimg(white_plank)
         # self.cvshowimg(final_img)
         return final_img
@@ -1317,6 +1317,7 @@ class rmcurlinebycolor():
                 # print it
                 # img_tmp = cv2.medianBlur(img_tmp, 3)  # 中值滤波:效果最好，但是会连带删除部分字体
                 # img_tmp = self.corrosion(img_tmp)
+                self.cvshowimg(img_tmp)
                 img2gray = cv2.cvtColor(img_tmp, cv2.COLOR_BGR2GRAY)
                 ret, mask = cv2.threshold(img2gray, 100, 255, cv2.THRESH_BINARY)
                 mask = cv2.bitwise_not(mask)
@@ -1326,7 +1327,7 @@ class rmcurlinebycolor():
                 img_tmp = cv2.bitwise_and(bk_imgobj, bk_imgobj, mask=mask_inv)
                 self.getpointslist(img_tmp)  # 只是为了将黑色背景置成白色, 并不是为了获得前景图的像素点
                 # img_tmp = cv2.medianBlur(img_tmp, 3)  # 中值滤波:效果最好，但是会连带删除部分字体
-            # # self.cvshowimg(img_tmp)
+                self.cvshowimg(img_tmp)
             # #
             # if it == 2:
             #     img_tmp = self.corrosion(imgobj=img_tmp, origin_frontimg=bk_imgobj)
