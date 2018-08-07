@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1096" />
-    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1180" />
-    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="761" />
+    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1097" />
+    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1181" />
+    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="762" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a6a9b2-39bf-4402-a29e-116671a10e02" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bwtest.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/bwtest.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/captcha_6-char_test_30w_noline_label.json" beforeDir="false" afterPath="$PROJECT_DIR$/captcha_6-char_test_30w_noline_label.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen_captcha.py" beforeDir="false" afterPath="$PROJECT_DIR$/gen_captcha.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/removeBKnoise.py" beforeDir="false" afterPath="$PROJECT_DIR$/removeBKnoise.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -26,8 +28,20 @@
       <file leaf-file-name="removeBKnoise.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="848" column="66" lean-forward="true" selection-start-line="848" selection-start-column="66" selection-end-line="848" selection-end-column="66" />
+            <state relative-caret-position="351">
+              <caret line="1431" column="19" selection-start-line="1431" selection-start-column="19" selection-end-line="1431" selection-end-column="19" />
+              <folding>
+                <element signature="e#78#145#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gen_captcha.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gen_captcha.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="463">
+              <caret line="566" column="9" selection-start-line="566" selection-start-column="9" selection-end-line="566" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -52,7 +66,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>print</find>
       <find>85</find>
       <find>rowscan</find>
       <find>bottom</find>
@@ -82,6 +95,7 @@
       <find>cv2.medi</find>
       <find>corro</find>
       <find>rmCurseline_by_Agglo</find>
+      <find>getfrontground</find>
     </findStrings>
     <replaceStrings>
       <replace>(self)</replace>
@@ -123,7 +137,20 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Captcha_Recg" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Captcha_Recg" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -177,24 +204,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="gen_captcha" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="captcha" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cnnforcaptcha" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cnnforcaptcha/gen_captcha.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="hierarchical" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="captcha" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -208,6 +217,24 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="/usr/local/lib/python2.7/dist-packages/sklearn/cluster/hierarchical.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="recognnizeCaptcha" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="captcha" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/recognnizeCaptcha.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -264,18 +291,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.removeBKnoise" />
-      <item itemvalue="Python.gen_captcha" />
       <item itemvalue="Python.gen_captcha (1)" />
       <item itemvalue="Python tests.Nosetests in captcha_6-char_test" />
       <item itemvalue="Python.hierarchical" />
+      <item itemvalue="Python.recognnizeCaptcha" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.removeBKnoise" />
+        <item itemvalue="Python.recognnizeCaptcha" />
         <item itemvalue="Python.hierarchical" />
         <item itemvalue="Python.gen_captcha (1)" />
         <item itemvalue="Python tests.Nosetests in captcha_6-char_test" />
-        <item itemvalue="Python.gen_captcha" />
       </list>
     </recent_temporary>
   </component>
@@ -304,7 +331,7 @@
     <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" weight="0.18333334" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.18333334" />
       <window_info anchor="bottom" id="TODO" order="13" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50215286" side_tool="true" weight="0.32914287" />
       <window_info active="true" anchor="bottom" id="Run" order="9" sideWeight="0.49784714" visible="true" weight="0.32890704" />
@@ -359,7 +386,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/19.jpg" />
     <entry file="file://$PROJECT_DIR$/captcha_6-char_test/20.jpg" />
     <entry file="file://$PROJECT_DIR$/captcha_6-char_test/21.jpg" />
     <entry file="file://$PROJECT_DIR$/captcha_6-char_test/22.jpg" />
@@ -412,13 +438,6 @@
     <entry file="file://$PROJECT_DIR$/sogoucaptcha_templates/0.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/gen_captcha.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1553">
-          <caret line="486" selection-start-line="486" selection-end-line="486" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python2.7/dist-packages/sklearn/cluster/hierarchical.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-182">
@@ -447,10 +466,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/recognnizeCaptcha.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="18" />
+          <folding>
+            <element signature="e#77#95#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gen_captcha.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="566" column="9" selection-start-line="566" selection-start-column="9" selection-end-line="566" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="848" column="66" lean-forward="true" selection-start-line="848" selection-start-column="66" selection-end-line="848" selection-end-column="66" />
+        <state relative-caret-position="351">
+          <caret line="1431" column="19" selection-start-line="1431" selection-start-column="19" selection-end-line="1431" selection-end-column="19" />
+          <folding>
+            <element signature="e#78#145#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
