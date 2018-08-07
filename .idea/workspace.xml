@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1097" />
-    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1181" />
-    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="762" />
+    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1114" />
+    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="770" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a6a9b2-39bf-4402-a29e-116671a10e02" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/bwtest.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/bwtest.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha_6-char_test_30w_noline_label.json" beforeDir="false" afterPath="$PROJECT_DIR$/captcha_6-char_test_30w_noline_label.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen_captcha.py" beforeDir="false" afterPath="$PROJECT_DIR$/gen_captcha.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/removeBKnoise.py" beforeDir="false" afterPath="$PROJECT_DIR$/removeBKnoise.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -28,29 +24,11 @@
       <file leaf-file-name="removeBKnoise.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="1431" column="19" selection-start-line="1431" selection-start-column="19" selection-end-line="1431" selection-end-column="19" />
+            <state relative-caret-position="421">
+              <caret line="760" column="45" selection-start-line="760" selection-start-column="45" selection-end-line="760" selection-end-column="45" />
               <folding>
                 <element signature="e#78#145#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gen_captcha.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gen_captcha.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="566" column="9" selection-start-line="566" selection-start-column="9" selection-end-line="566" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-1247972723/cv2/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="1693" column="8" selection-start-line="1693" selection-start-column="8" selection-end-line="1693" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -329,17 +307,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.18333334" />
       <window_info anchor="bottom" id="TODO" order="13" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50215286" side_tool="true" weight="0.32914287" />
-      <window_info active="true" anchor="bottom" id="Run" order="9" sideWeight="0.49784714" visible="true" weight="0.32890704" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49784714" weight="0.32890704" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Python Console" order="3" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="5" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.39938712" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Salesforce" order="6" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.2497309" />
@@ -382,7 +359,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -485,8 +462,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="1431" column="19" selection-start-line="1431" selection-start-column="19" selection-end-line="1431" selection-end-column="19" />
+        <state relative-caret-position="421">
+          <caret line="760" column="45" selection-start-line="760" selection-start-column="45" selection-end-line="760" selection-end-column="45" />
           <folding>
             <element signature="e#78#145#0" expanded="true" />
           </folding>

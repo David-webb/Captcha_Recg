@@ -753,15 +753,25 @@ class rmcurlinebycolor():
         img2_fg = cv2.bitwise_and(roi, roi, mask=mask_inv)
         # self.getpointslist(img2_fg)
         # self.cvshowimg(img2_fg)
-        # img2_fg = self.ehanceimg(img2_fg, 0)
-        # self.cvshowimg(img2_fg)
-        # 灰度图
+        # 直方图均衡增强图片
+        img2_fg = self.ehanceimg(img2_fg, 0)
+        self.cvshowimg(img2_fg)
+        # 高斯滤波
+        # blur = cv2.GaussianBlur(img2_fg, (3, 3), 0)
+        blur = cv2.bilateralFilter(img2_fg,11, 105, 105)
+        self.cvshowimg(blur)
+        # # 灰度图
         # img2_fg_gray = cv2.cvtColor(img2_fg, cv2.COLOR_BGR2GRAY)
         # self.cvshowimg(img2_fg_gray)
+        # equ = cv2.equalizeHist(img2_fg_gray)
+        # self.cvshowimg(equ)
+
         # 转到LAB空间
         # img2_fg_LAB = cv2.cvtColor(img2_fg, cv2.COLOR_BGR2LAB)
         # print img2_fg_LAB
         # self.cvshowimg(img2_fg_LAB)
+        # img2_fg = self.ehanceimg(img2_fg_LAB, 0)
+        # self.cvshowimg(img2_fg)
         # 中值滤波
         # img2_fg_median = cv2.medianBlur(img2_fg, 3)  # 中值滤波:效果最好，但是会连带删除部分字体
         # self.cvshowimg(img2_fg_median)
@@ -823,10 +833,17 @@ class rmcurlinebycolor():
         ret, mask = cv2.threshold(img2gray, 100, 255, cv2.THRESH_BINARY)
         return mask
 
-    def corrosion(self, imgobj=None, origin_frontimg=None):
+    def corrosion(self, imgobj=None, origin_frontimg=None, mode=1):
         """ 使用腐蚀操作，对细曲线进行去除"""
         # imgobj = cv2.imread("/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/sogoucapture/9")
-        bk_imgobj = copy.deepcopy(imgobj)
+
+        if mode == 1:
+            bk_imgobj = copy.deepcopy(imgobj)
+        elif mode != 2 and type(origin_frontimg) == numpy.ndarray:
+            bk_imgobj = copy.deepcopy(origin_frontimg)
+        else:
+            print "corrosion函数参数输入有误!"
+            return imgobj
         imgobj = cv2.cvtColor(imgobj, cv2.COLOR_BGR2GRAY)
         ret, imgobj = cv2.threshold(imgobj, 100, 255, cv2.THRESH_BINARY)
         old_th = copy.deepcopy(imgobj)
@@ -850,7 +867,7 @@ class rmcurlinebycolor():
         # contours.sort(cmp=cv2.contourArea, reverse=True)
         contours = [C for C in contours if cv2.contourArea(C) > 5]
         contours = sorted(contours, key=cv2.contourArea, reverse=True)
-        # print len(contours)
+        print len(contours)
         legth = len(contours) if len(contours) < 10 else 10
         for i in range(0, legth):
             area = cv2.contourArea(contours[i])
@@ -1176,11 +1193,12 @@ class rmcurlinebycolor():
         self.drawpic(pointslist, labels)
 
         # 找出曲线所在的类（通过投影的方式），将该类的点全部置成背景色
-        curselinepoints, biggestLabels, lable_pdict = self.getbiggestypepointset(pointslist, labels)
-        curselinepoints = self.freshkmeanscurselinepoints(cursepoints=curselinepoints, kmpointsets_dict=lable_pdict, bk_imgobj=imgobj)
+        # curselinepoints, biggestLabels, lable_pdict = self.getbiggestypepointset(pointslist, labels)
+        # curselinepoints = self.freshkmeanscurselinepoints(cursepoints=curselinepoints, kmpointsets_dict=lable_pdict, bk_imgobj=imgobj)
         # self.rmcurselinepoints(imgobj, curselinepoints)
-        #
-        self.drawpic(curselinepoints, biggestLabels)
+        # self.cvshowimg(imgobj)
+
+        # self.drawpic(curselinepoints, biggestLabels)
         # # self.cvshowimg(imgobj)
         # # kernel = numpy.ones((3,3), numpy.uint8)   #
         # # imgobj = cv2.erode(imgobj, kernel, iterations = 1) # 腐蚀
@@ -1189,16 +1207,17 @@ class rmcurlinebycolor():
         # # imgobj = cv2.medianBlur(imgobj, 3)    # 中值滤波:效果最好，但是会连带删除部分字体
         # # imgobj = cv2.blur(imgobj, (3, 3))     # 平均:效果差
         #
-        # # img2gray = cv2.cvtColor(imgobj, cv2.COLOR_BGR2GRAY)
-        # # ret, mask = cv2.threshold(img2gray, 100, 255, cv2.THRESH_BINARY)
-        # # mask = cv2.bitwise_not(mask)
-        # # kernel = numpy.ones((3, 3), numpy.uint8)
-        # # mask_inv = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
-        # # self.cvshowimg(mask_inv)
-        # # imgobj = cv2.bitwise_and(bk_imgobj, bk_imgobj, mask=mask_inv)
-        # # self.getpointslist(imgobj)  # 只是为了将黑色背景置成白色, 并不是为了获得前景图的像素点
-        # #
-        # # imgobj = self.corrosion(imgobj)
+        # img2gray = cv2.cvtColor(imgobj, cv2.COLOR_BGR2GRAY)
+        # ret, mask = cv2.threshold(img2gray, 100, 255, cv2.THRESH_BINARY)
+        # mask = cv2.bitwise_not(mask)
+        # kernel = numpy.ones((3, 3), numpy.uint8)
+        # mask_inv = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
+        # self.cvshowimg(mask_inv)
+        # imgobj = cv2.bitwise_and(bk_imgobj, bk_imgobj, mask=mask_inv)
+        # self.getpointslist(imgobj)  # 只是为了将黑色背景置成白色, 并不是为了获得前景图的像素点
+        # self.cvshowimg(imgobj)
+        # imgobj = self.corrosion(imgobj)  #  origin_frontimg=bk_imgobj, mode=2
+        # self.cvshowimg(imgobj)
         # # cv2.namedWindow('res', 0)
         # # imgobj = cv2.medianBlur(imgobj, 3)    # 中值滤波:效果最好，但是会连带删除部分字体
         # self.cvshowimg(imgobj)
@@ -1282,66 +1301,66 @@ class rmcurlinebycolor():
         # 数据准备：计算前景点和距离列表
         # 其中参数discalc_mode取值可以是color, s_c, space, 分别对应颜色聚类、颜色_实体空间聚类、实体空间聚类
         bk_imgobj = self.getfrontground(imgobj)
-        self.getpointslist(bk_imgobj)
-        img_tmp = copy.deepcopy(bk_imgobj)
-        first_cursepoints = []
-        for it in range(3):
-            # print imgobj[0,:]
-            pointslist = self.getpointslist(img_tmp)
-            plist = [p[:2] for p in pointslist]     # 实体坐标
-            clist = [p[2] for p in pointslist]      # 颜色坐标
-
-            datalist = []
-            n_cluster = 7
-            if discalc_mode == 'color':
-                datalist = clist
-                n_cluster = 10
-            elif discalc_mode == 'space':
-                datalist = plist
-            estimator = KMeans(n_clusters=n_cluster+it)
-            labels = estimator.fit_predict(datalist)
-
-            # print labels
-            # print len(pointslist), len(labels)
-
-            # 根据前景点数据和对应的label画图
-            # self.drawpic(plist, labels)
-
-            # 找出曲线所在的类（通过投影的方式），将该类的点全部置成背景色
-            curselinepoints, biggestLabels, label_pdict = self.getbiggestypepointset(plist, labels)
-            if it == 0:  # 保存最核心的curseline点集合
-                first_cursepoints = curselinepoints
-            if it > 10:   # 不能再用投影,要重新计算可疑曲线的点集合
-                curselinepoints = self.freshkmeanscurselinepoints(first_cursepoints, label_pdict, bk_imgobj)
-
-            # 删除曲线点集合
-            self.rmcurselinepoints(img_tmp, curselinepoints)
-
-            # 闭运算:先膨胀再腐蚀,这是为了重描被误删的字符部分
-            if it == 2:  # not (it+1) % 2
-                # print it
-                # img_tmp = cv2.medianBlur(img_tmp, 3)  # 中值滤波:效果最好，但是会连带删除部分字体
-                # img_tmp = self.corrosion(img_tmp)
-                self.cvshowimg(img_tmp)
-                img2gray = cv2.cvtColor(img_tmp, cv2.COLOR_BGR2GRAY)
-                ret, mask = cv2.threshold(img2gray, 100, 255, cv2.THRESH_BINARY)
-                mask = cv2.bitwise_not(mask)
-                kernel = numpy.ones((3, 3), numpy.uint8)
-                mask_inv = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
-                img_tmp = cv2.bitwise_and(bk_imgobj, bk_imgobj, mask=mask_inv)
-                self.getpointslist(img_tmp)  # 只是为了将黑色背景置成白色, 并不是为了获得前景图的像素点
-                # img_tmp = cv2.medianBlur(img_tmp, 3)  # 中值滤波:效果最好，但是会连带删除部分字体
-                self.cvshowimg(img_tmp)
-            # #
-            # if it == 2:
-            #     img_tmp = self.corrosion(imgobj=img_tmp, origin_frontimg=bk_imgobj)
-
-        img_tmp = self.corrosion(imgobj=img_tmp, origin_frontimg=bk_imgobj)
-        img_tmp = self.turnimg2binary(img_tmp)
+        # self.getpointslist(bk_imgobj)
+        # img_tmp = copy.deepcopy(bk_imgobj)
+        # first_cursepoints = []
+        # for it in range(3):
+        #     # print imgobj[0,:]
+        #     pointslist = self.getpointslist(img_tmp)
+        #     plist = [p[:2] for p in pointslist]     # 实体坐标
+        #     clist = [p[2] for p in pointslist]      # 颜色坐标
+        #
+        #     datalist = []
+        #     n_cluster = 7
+        #     if discalc_mode == 'color':
+        #         datalist = clist
+        #         n_cluster = 10
+        #     elif discalc_mode == 'space':
+        #         datalist = plist
+        #     estimator = KMeans(n_clusters=n_cluster+it)
+        #     labels = estimator.fit_predict(datalist)
+        #
+        #     # print labels
+        #     # print len(pointslist), len(labels)
+        #
+        #     # 根据前景点数据和对应的label画图
+        #     # self.drawpic(plist, labels)
+        #
+        #     # 找出曲线所在的类（通过投影的方式），将该类的点全部置成背景色
+        #     curselinepoints, biggestLabels, label_pdict = self.getbiggestypepointset(plist, labels)
+        #     if it == 0:  # 保存最核心的curseline点集合
+        #         first_cursepoints = curselinepoints
+        #     if it > 10:   # 不能再用投影,要重新计算可疑曲线的点集合
+        #         curselinepoints = self.freshkmeanscurselinepoints(first_cursepoints, label_pdict, bk_imgobj)
+        #
+        #     # 删除曲线点集合
+        #     self.rmcurselinepoints(img_tmp, curselinepoints)
+        #
+        #     # 闭运算:先膨胀再腐蚀,这是为了重描被误删的字符部分
+        #     if it == 2:  # not (it+1) % 2
+        #         # print it
+        #         # img_tmp = cv2.medianBlur(img_tmp, 3)  # 中值滤波:效果最好，但是会连带删除部分字体
+        #         # img_tmp = self.corrosion(img_tmp)
+        #         self.cvshowimg(img_tmp)
+        #         img2gray = cv2.cvtColor(img_tmp, cv2.COLOR_BGR2GRAY)
+        #         ret, mask = cv2.threshold(img2gray, 100, 255, cv2.THRESH_BINARY)
+        #         mask = cv2.bitwise_not(mask)
+        #         kernel = numpy.ones((3, 3), numpy.uint8)
+        #         mask_inv = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
+        #         img_tmp = cv2.bitwise_and(bk_imgobj, bk_imgobj, mask=mask_inv)
+        #         self.getpointslist(img_tmp)  # 只是为了将黑色背景置成白色, 并不是为了获得前景图的像素点
+        #         # img_tmp = cv2.medianBlur(img_tmp, 3)  # 中值滤波:效果最好，但是会连带删除部分字体
+        #         self.cvshowimg(img_tmp)
+        #     # #
+        #     # if it == 2:
+        #     #     img_tmp = self.corrosion(imgobj=img_tmp, origin_frontimg=bk_imgobj)
+        #
+        # img_tmp = self.corrosion(imgobj=img_tmp)
+        # img_tmp = self.turnimg2binary(img_tmp)
         # self.cvshowimg(img_tmp)
-        # img_tmp = cv2.medianBlur(img_tmp, 3)  # 中值滤波:效果最好，但是会连带删除部分字体
-        # self.cvshowimg(img_tmp)
-        return img_tmp
+        # # img_tmp = cv2.medianBlur(img_tmp, 3)  # 中值滤波:效果最好，但是会连带删除部分字体
+        # # self.cvshowimg(img_tmp)
+        # return img_tmp
         pass
 
 
@@ -1362,16 +1381,16 @@ class rmcurlinebycolor():
             if not os.path.isdir(fname):
                 imgobj = cv2.imread(fname)
                 self.cvshowimg(imgobj)
-                # self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='color')
+                self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='color')
                 # self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='space')
                 # self.rmCurseline_by_DBSCANCluster(imgobj=imgobj, discalc_mode='s_c')
-                imgobj = self.rmCurseline_by_Kmeans(imgobj=imgobj, discalc_mode='color')
+                # imgobj = self.rmCurseline_by_Kmeans(imgobj=imgobj, discalc_mode='color')
 
                 # imgobj = self.rmCurseline_by_Kmeans(imgobj=imgobj, discalc_mode='space')
                 # self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='space')
                 # self.rmCurseline_by_DBSCANCluster(imgobj=imgobj, discalc_mode='space')
-                self.cvshowimg(imgobj)
-                self.RecogText(imgobj)
+                # self.cvshowimg(imgobj)
+                # self.RecogText(imgobj)
                 # cv2.imwrite(os.path.join(abpath, f+"_rn.jpg"), imgobj)
         pass
 
