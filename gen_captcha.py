@@ -555,7 +555,7 @@ if __name__ == '__main__':
     # tobj.gene_code()
 
     # 测试gencaptcha_final
-    tobj = gencaptcha_final(6, 300000, savepath="/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/captcha_6-char_test_30w_noline", rotate=True, drawline=True)
+    tobj = gencaptcha_final(6, 300000, savepath="/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/captcha_6-char_test_30w_noline", rotate=True, drawline=False)
     # tobj = gencaptcha_final(mode=6, totalnum=120000, savepath="/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/captcha_1-char_12w", rotate=True)
     tobj.run()
     # tobj.gen_curseline("")

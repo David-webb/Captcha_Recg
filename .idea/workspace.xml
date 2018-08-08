@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1114" />
-    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="770" />
+    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1185" />
+    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="841" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a6a9b2-39bf-4402-a29e-116671a10e02" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/captcha_6-char_test_30w_noline_label.json" beforeDir="false" afterPath="$PROJECT_DIR$/captcha_6-char_test_30w_noline_label.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen_captcha.py" beforeDir="false" afterPath="$PROJECT_DIR$/gen_captcha.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/removeBKnoise.py" beforeDir="false" afterPath="$PROJECT_DIR$/removeBKnoise.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -20,12 +23,12 @@
     <favorites_list name="captcha" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="removeBKnoise.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="760" column="45" selection-start-line="760" selection-start-column="45" selection-end-line="760" selection-end-column="45" />
+            <state relative-caret-position="378">
+              <caret line="827" column="14" lean-forward="true" selection-start-line="827" selection-start-column="14" selection-end-line="827" selection-end-column="14" />
               <folding>
                 <element signature="e#78#145#0" expanded="true" />
               </folding>
@@ -44,11 +47,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>85</find>
-      <find>rowscan</find>
-      <find>bottom</find>
-      <find>40</find>
-      <find>44</find>
       <find>5</find>
       <find>file 5</find>
       <find>shape</find>
@@ -69,11 +67,16 @@
       <find>img3</find>
       <find>ehan</find>
       <find>draw</find>
-      <find>getfront</find>
       <find>cv2.medi</find>
       <find>corro</find>
       <find>rmCurseline_by_Agglo</find>
       <find>getfrontground</find>
+      <find>enhance</find>
+      <find>cv2.split</find>
+      <find>[0, 0</find>
+      <find>cv_</find>
+      <find>getfront</find>
+      <find>Agg</find>
     </findStrings>
     <replaceStrings>
       <replace>(self)</replace>
@@ -105,7 +108,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="150" />
     <option name="y" value="124" />
     <option name="width" value="958" />
@@ -306,18 +309,19 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
+    <frame x="-1" y="-11" width="1922" height="1092" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.18333334" />
       <window_info anchor="bottom" id="TODO" order="13" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50215286" side_tool="true" weight="0.32914287" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49784714" weight="0.32890704" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Python Console" order="3" />
+      <window_info active="true" anchor="bottom" id="Run" order="9" sideWeight="0.49784714" visible="true" weight="0.32890704" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="5" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.39938712" />
       <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.39938712" />
       <window_info anchor="bottom" id="Salesforce" order="6" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.2497309" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
@@ -332,16 +336,16 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="bottom" id="Salesforce" order="6" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.2497309" />
+      <window_info anchor="bottom" id="Debug Logs" order="0" />
+      <window_info content_ui="combo" id="Project" order="1" weight="0.18333334" />
       <window_info active="true" anchor="bottom" id="Run" order="9" sideWeight="0.49784714" visible="true" weight="0.32890704" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" weight="0.18333334" />
+      <window_info anchor="right" id="Data View" order="0" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="13" />
       <window_info anchor="bottom" id="Find" order="8" />
-      <window_info anchor="bottom" id="Debug Logs" order="0" />
       <window_info anchor="bottom" id="Python Console" order="3" />
       <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Execute Anonymous" order="4" />
@@ -349,8 +353,8 @@
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50215286" side_tool="true" weight="0.32914287" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="2" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.2497309" />
       <window_info anchor="bottom" id="Message" order="7" />
-      <window_info anchor="right" id="Data View" order="0" />
       <window_info id="Favorites" order="0" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -436,20 +440,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-1247972723/cv2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="1693" column="8" selection-start-line="1693" selection-start-column="8" selection-end-line="1693" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/recognnizeCaptcha.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="18" />
-          <folding>
-            <element signature="e#77#95#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -460,10 +454,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-1247972723/cv2/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22288">
+          <caret line="1393" column="68" selection-start-line="1393" selection-start-column="68" selection-end-line="1393" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="760" column="45" selection-start-line="760" selection-start-column="45" selection-end-line="760" selection-end-column="45" />
+        <state relative-caret-position="378">
+          <caret line="827" column="14" lean-forward="true" selection-start-line="827" selection-start-column="14" selection-end-line="827" selection-end-column="14" />
           <folding>
             <element signature="e#78#145#0" expanded="true" />
           </folding>
