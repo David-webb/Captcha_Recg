@@ -4,6 +4,8 @@
 # Created by David Teng on 18-7-4
 
 from sklearn.cluster import AgglomerativeClustering, DBSCAN, KMeans
+from sklearn.decomposition import PCA
+from sklearn import preprocessing
 import scipy.spatial.distance as scidst
 from sklearn import metrics
 import matplotlib
@@ -993,6 +995,7 @@ class rmcurlinebycolor():
         # cv2.waitKey(0)
         # cv2.destroyAllWindows()
         distlist = self.calspaceORcolordist(pointslist, mode=discalc_mode)      # discalc_mode取值可以是color, s_c, space
+
         pointslist = [(p[0], p[1]) for p in pointslist]
         return pointslist, distlist, imgobj
         pass
@@ -1061,7 +1064,7 @@ class rmcurlinebycolor():
                 c_list = list(imgobj[r, c])
                 if c_list != [0, 0, 0] and c_list != [255, 255, 255]:     # 不是白色或者黑色:不是背景色 LAB空间:and c_list != [0, 128, 128]
                     pointslist.append([r, c, imgobj[r, c]])
-                elif c_list == [0, 0, 0] :						# 这边可能存在问题，如果字符或者曲线是黑色先画出来的，就有可能误删  # LAB空间:or c_list == [0, 128, 128]
+                elif c_list == [0, 0, 0]:						# 这边可能存在问题，如果字符或者曲线是黑色先画出来的，就有可能误删  # LAB空间:or c_list == [0, 128, 128]
                     imgobj[r, c] = [255, 255, 255]
                     pass
         # print pointslist
@@ -1088,7 +1091,7 @@ class rmcurlinebycolor():
             cdist = numpy.sqrt(numpy.sum(numpy.square(p1_c - p2_c)))
             return cdist
 
-        def colordist2(p1,p2):
+        def colordist2(p1, p2):
             """ 改进的加权欧氏距离"""
             p1_c = p1[2]
             p2_c = p2[2]
@@ -1172,12 +1175,14 @@ class rmcurlinebycolor():
             # 对两个距离列表分别进行求和，并分别进行归一化
             c_sum = float(sum(clrdist))
             s_sum = float(sum(spcdist))
-            print c_sum
-            print s_sum
+            # # print c_sum
+            # # print s_sum
             clrdist = [c/c_sum for c in clrdist]
             spcdist = [s/s_sum for s in spcdist]
-
-            s_c_dist = [0.8 * c + 0.2 * s for c, s in zip(clrdist, spcdist)]  # # 按照各0.5的权值叠加颜色距离和实体距离:
+            # z-score归一化
+            # clrdist = preprocessing.scale(clrdist)
+            # spcdist = preprocessing.scale(spcdist)
+            s_c_dist = [0.5 * c + 0.5 * s for c, s in zip(clrdist, spcdist)]  # # 按照各0.5的权值叠加颜色距离和实体距离:
             # s_c_dist = [math.sqrt(c**2+s**2) for c, s in zip(clrdist, spcdist)]  # 改进,将(颜色距离,实体距离) 作为新的坐标,计算欧式距离
             # s_c_dist = [c*s for c, s in zip(clrdist, spcdist)]
             return s_c_dist
@@ -1189,6 +1194,13 @@ class rmcurlinebycolor():
 
         # 否则，再判断是计算颜色空间距离或实体空间距离
         distlist = []
+        origin_data = numpy.array([p[2] for p in pointslist])
+        pca = PCA(n_components=2, copy=False, whiten=True)
+        new_data = pca.fit_transform(origin_data)
+
+        for i, p in enumerate(pointslist):
+            p[2] = new_data[i]
+        # print pointslist
         for i, fp in enumerate(pointslist):
             for ep in pointslist[i+1:]:     # 这里做切片的时候，如果i+1 == len(pointslist), 则切片返回[],所以这样写是安全的
                 if mode == 'color':
@@ -1197,7 +1209,14 @@ class rmcurlinebycolor():
                 else:
                     distlist.append(spacedist(fp, ep))
                 pass
-        # print distlist
+        # z-score 归一化
+        distlist = preprocessing.scale(distlist)
+
+        # max-min 归一化,该操作需要修改Agglo函数中的距离矩阵部分
+        # distlist = scidst.squareform(numpy.array(distlist))
+        # min_max_scaler = preprocessing.MinMaxScaler()
+        # distlist = min_max_scaler.fit_transform(distlist)
+        print distlist
         return distlist
 
     def drawpic(self, pointslist, labels):
@@ -1255,6 +1274,7 @@ class rmcurlinebycolor():
         bk_imgobj = copy.deepcopy(imgobj)
         # 层次聚类
         model = AgglomerativeClustering(n_clusters=7, affinity='precomputed', linkage='average')
+        # dist_matrix = distlist
         dist_matrix = scidst.squareform(numpy.array(distlist))      # 根据距离列表构造距离矩阵
         labels = model.fit_predict(dist_matrix)
         # metrics.silhouette_score(dist_matrix, labels=labels, metric="precomputed") # 轮廓系数，检测聚类质量
@@ -1266,14 +1286,14 @@ class rmcurlinebycolor():
         # 找出曲线所在的类（通过投影的方式），将该类的点全部置成背景色
         curselinepoints, biggestLabels, lable_pdict = self.getbiggestypepointset(pointslist, labels)
         # curselinepoints = self.freshkmeanscurselinepoints(cursepoints=curselinepoints, kmpointsets_dict=lable_pdict, bk_imgobj=imgobj)
-        # self.rmcurselinepoints(imgobj, curselinepoints)
-        # self.cvshowimg(imgobj)
-        all_labels = lable_pdict.keys()
-        all_labels.remove(biggestLabels[0])
-        other_label = all_labels[0]
-        new_labels = [other_label if l != biggestLabels[0] else biggestLabels[0] for l in labels]
-
-        self.drawpic(pointslist, new_labels)
+        self.rmcurselinepoints(imgobj, curselinepoints)
+        self.cvshowimg(imgobj)
+        # all_labels = lable_pdict.keys()
+        # all_labels.remove(biggestLabels[0])
+        # other_label = all_labels[0]
+        # new_labels = [other_label if l != biggestLabels[0] else biggestLabels[0] for l in labels]
+        #
+        # self.drawpic(pointslist, new_labels)
         # self.drawpic(curselinepoints, biggestLabels)
         # # self.cvshowimg(imgobj)
         # # kernel = numpy.ones((3,3), numpy.uint8)   #
@@ -1283,17 +1303,18 @@ class rmcurlinebycolor():
         # # imgobj = cv2.medianBlur(imgobj, 3)    # 中值滤波:效果最好，但是会连带删除部分字体
         # # imgobj = cv2.blur(imgobj, (3, 3))     # 平均:效果差
         #
-        # img2gray = cv2.cvtColor(imgobj, cv2.COLOR_BGR2GRAY)
-        # ret, mask = cv2.threshold(img2gray, 100, 255, cv2.THRESH_BINARY)
-        # mask = cv2.bitwise_not(mask)
-        # kernel = numpy.ones((3, 3), numpy.uint8)
-        # mask_inv = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
+        img2gray = cv2.cvtColor(imgobj, cv2.COLOR_BGR2GRAY)
+        ret, mask = cv2.threshold(img2gray, 100, 255, cv2.THRESH_BINARY)
+        mask = cv2.bitwise_not(mask)
+        kernel = numpy.ones((3, 3), numpy.uint8)
+        mask_inv = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
         # self.cvshowimg(mask_inv)
-        # imgobj = cv2.bitwise_and(bk_imgobj, bk_imgobj, mask=mask_inv)
-        # self.getpointslist(imgobj)  # 只是为了将黑色背景置成白色, 并不是为了获得前景图的像素点
-        # self.cvshowimg(imgobj)
-        # imgobj = self.corrosion(imgobj)  #  origin_frontimg=bk_imgobj, mode=2
-        # self.cvshowimg(imgobj)
+        imgobj = cv2.bitwise_and(bk_imgobj, bk_imgobj, mask=mask_inv)
+        self.getpointslist(imgobj)  # 只是为了将黑色背景置成白色, 并不是为了获得前景图的像素点
+        self.cvshowimg(imgobj)
+
+        imgobj = self.corrosion(imgobj)  #  origin_frontimg=bk_imgobj, mode=2
+        self.cvshowimg(imgobj)
         # # cv2.namedWindow('res', 0)
         # # imgobj = cv2.medianBlur(imgobj, 3)    # 中值滤波:效果最好，但是会连带删除部分字体
         # self.cvshowimg(imgobj)
