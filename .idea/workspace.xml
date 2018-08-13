@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1185" />
-    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="841" />
+    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="1196" />
+    <bookmark url="file://$PROJECT_DIR$/removeBKnoise.py" line="845" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a6a9b2-39bf-4402-a29e-116671a10e02" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/captcha_6-char_test_30w_noline_label.json" beforeDir="false" afterPath="$PROJECT_DIR$/captcha_6-char_test_30w_noline_label.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gen_captcha.py" beforeDir="false" afterPath="$PROJECT_DIR$/gen_captcha.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/removeBKnoise.py" beforeDir="false" afterPath="$PROJECT_DIR$/removeBKnoise.py" afterDir="false" />
     </list>
@@ -27,8 +25,8 @@
       <file leaf-file-name="removeBKnoise.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="827" column="14" lean-forward="true" selection-start-line="827" selection-start-column="14" selection-end-line="827" selection-end-column="14" />
+            <state relative-caret-position="385">
+              <caret line="1548" column="8" lean-forward="true" selection-start-line="1548" selection-start-column="8" selection-end-line="1548" selection-end-column="8" />
               <folding>
                 <element signature="e#78#145#0" expanded="true" />
               </folding>
@@ -47,10 +45,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>5</find>
-      <find>file 5</find>
-      <find>shape</find>
-      <find>216</find>
       <find>leftop_r</find>
       <find>c</find>
       <find>my</find>
@@ -75,8 +69,12 @@
       <find>cv2.split</find>
       <find>[0, 0</find>
       <find>cv_</find>
-      <find>getfront</find>
       <find>Agg</find>
+      <find>turnimg2</find>
+      <find>turnimg2binary</find>
+      <find>getfront</find>
+      <find>kmeans</find>
+      <find>run</find>
     </findStrings>
     <replaceStrings>
       <replace>(self)</replace>
@@ -108,11 +106,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="150" />
-    <option name="y" value="124" />
-    <option name="width" value="958" />
-    <option name="height" value="1076" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="-4" />
+    <option name="width" value="960" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -309,15 +306,15 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-11" width="1922" height="1092" extended-state="7" />
+    <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.18333334" />
+      <window_info content_ui="combo" id="Project" order="1" weight="0.36666667" />
       <window_info anchor="bottom" id="TODO" order="13" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50215286" side_tool="true" weight="0.32914287" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Python Console" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="9" sideWeight="0.49784714" visible="true" weight="0.32890704" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49784714" weight="0.32890704" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="5" />
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -367,7 +364,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/captcha_6-char_test/20.jpg" />
     <entry file="file://$PROJECT_DIR$/captcha_6-char_test/21.jpg" />
     <entry file="file://$PROJECT_DIR$/captcha_6-char_test/22.jpg" />
     <entry file="file://$PROJECT_DIR$/captcha_6-char_test/23.jpg" />
@@ -456,15 +452,22 @@
     </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-1247972723/cv2/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22288">
-          <caret line="1393" column="68" selection-start-line="1393" selection-start-column="68" selection-end-line="1393" selection-end-column="68" />
+        <state relative-caret-position="599">
+          <caret line="1701" column="4" selection-start-line="1701" selection-start-column="4" selection-end-line="1701" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/sklearn/cluster/k_means_.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="839" column="69" lean-forward="true" selection-start-line="839" selection-start-column="69" selection-end-line="839" selection-end-column="69" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="827" column="14" lean-forward="true" selection-start-line="827" selection-start-column="14" selection-end-line="827" selection-end-column="14" />
+        <state relative-caret-position="385">
+          <caret line="1548" column="8" lean-forward="true" selection-start-line="1548" selection-start-column="8" selection-end-line="1548" selection-end-column="8" />
           <folding>
             <element signature="e#78#145#0" expanded="true" />
           </folding>

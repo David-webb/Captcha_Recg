@@ -111,6 +111,7 @@ class gencaptcha_final():
             self.source.append(str(index))
 	stop_words = ['G', 'I', 'L', 'O', 'Q', 'U', 'W', 'Z', 'a', 'b', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'l', 'm', 'n', 'o', 'q', 'r', 't', 'u', 'w', 'y', 'z', '0', '9']
 	self.source = list(set(self.source)-set(stop_words)) 
+	# print len(set([w.lower() for w in self.source]))
         self.fontpool = [
             "/usr/share/fonts/truetype/fonts-japanese-gothic.ttf",
             "/usr/share/fonts/truetype/ubuntu-font-family/UbuntuMono-B.ttf"
@@ -555,7 +556,7 @@ if __name__ == '__main__':
     # tobj.gene_code()
 
     # 测试gencaptcha_final
-    tobj = gencaptcha_final(6, 300000, savepath="/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/captcha_6-char_test_30w_noline", rotate=True, drawline=False)
+    tobj = gencaptcha_final(6, 3, savepath="/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/captcha_6-char_test_60w_curseline_v3", rotate=True, drawline=True)
     # tobj = gencaptcha_final(mode=6, totalnum=120000, savepath="/home/jingdata/Document/LAB_CODE/captcha/Captcha_Recg/captcha_1-char_12w", rotate=True)
     tobj.run()
     # tobj.gen_curseline("")
