@@ -6,7 +6,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a6a9b2-39bf-4402-a29e-116671a10e02" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/gen_captcha.py" beforeDir="false" afterPath="$PROJECT_DIR$/gen_captcha.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/removeBKnoise.py" beforeDir="false" afterPath="$PROJECT_DIR$/removeBKnoise.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -25,10 +24,10 @@
       <file leaf-file-name="removeBKnoise.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="1548" column="8" lean-forward="true" selection-start-line="1548" selection-start-column="8" selection-end-line="1548" selection-end-column="8" />
+            <state relative-caret-position="-3363">
+              <caret line="1351" column="44" lean-forward="true" selection-start-line="1351" selection-start-column="44" selection-end-line="1351" selection-end-column="44" />
               <folding>
-                <element signature="e#78#145#0" expanded="true" />
+                <element signature="e#43#110#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -45,11 +44,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>leftop_r</find>
-      <find>c</find>
-      <find>my</find>
-      <find>&quot;15&quot;</find>
-      <find>&quot;275&quot;</find>
       <find>&quot;723&quot;</find>
       <find>self.</find>
       <find>21</find>
@@ -67,7 +61,7 @@
       <find>getfrontground</find>
       <find>enhance</find>
       <find>cv2.split</find>
-      <find>[0, 0</find>
+      <find />
       <find>cv_</find>
       <find>Agg</find>
       <find>turnimg2</find>
@@ -75,12 +69,17 @@
       <find>getfront</find>
       <find>kmeans</find>
       <find>run</find>
+      <find>6</find>
+      <find>n_</find>
+      <find>corrosion</find>
+      <find>remo</find>
+      <find>rm</find>
     </findStrings>
     <replaceStrings>
       <replace>(self)</replace>
       <replace>c</replace>
-      <replace>r, c</replace>
-      <replace>, scanset)</replace>
+      <replace />
+      <replace />
       <replace>self.getsuspectblocks</replace>
       <replace>old_r</replace>
       <replace>r</replace>
@@ -106,29 +105,17 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="-4" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="398" />
+    <option name="y" value="130" />
     <option name="width" value="960" />
-    <option name="height" value="1084" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Captcha_Recg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Captcha_Recg" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -311,14 +298,14 @@
     <layout>
       <window_info content_ui="combo" id="Project" order="1" weight="0.36666667" />
       <window_info anchor="bottom" id="TODO" order="13" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50215286" side_tool="true" weight="0.32914287" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5026042" side_tool="true" weight="0.3115424" />
+      <window_info active="true" anchor="bottom" id="Run" order="9" sideWeight="0.49739584" visible="true" weight="0.3115424" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Python Console" order="3" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49784714" weight="0.32890704" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="5" />
-      <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="10" weight="0.39938712" />
+      <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Salesforce" order="6" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.2497309" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
@@ -336,23 +323,23 @@
       <window_info anchor="bottom" id="Debug Logs" order="0" />
       <window_info content_ui="combo" id="Project" order="1" weight="0.18333334" />
       <window_info active="true" anchor="bottom" id="Run" order="9" sideWeight="0.49784714" visible="true" weight="0.32890704" />
-      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
+      <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="right" id="Data View" order="0" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="13" />
-      <window_info anchor="bottom" id="Find" order="8" />
-      <window_info anchor="bottom" id="Python Console" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="2" />
+      <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Execute Anonymous" order="4" />
       <window_info anchor="bottom" id="Terminal" order="5" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50215286" side_tool="true" weight="0.32914287" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="2" />
+      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.2497309" />
-      <window_info anchor="bottom" id="Message" order="7" />
-      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="8" />
+      <window_info anchor="bottom" id="Python Console" order="3" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -466,10 +453,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/removeBKnoise.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="1548" column="8" lean-forward="true" selection-start-line="1548" selection-start-column="8" selection-end-line="1548" selection-end-column="8" />
+        <state relative-caret-position="-3363">
+          <caret line="1351" column="44" lean-forward="true" selection-start-line="1351" selection-start-column="44" selection-end-line="1351" selection-end-column="44" />
           <folding>
-            <element signature="e#78#145#0" expanded="true" />
+            <element signature="e#43#110#0" expanded="true" />
           </folding>
         </state>
       </provider>

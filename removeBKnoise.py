@@ -1263,7 +1263,20 @@ class rmcurlinebycolor():
             imgobj[p[0], p[1]] = [255, 255, 255]
         pass
 
-    def rmCurseline_by_Agglocluster(self, imgobj, discalc_mode='color'):
+    def redrawalphabets(self, imgobj, bk_imgobj):
+        """ 对字符串轮廓进行重描 """
+        img2gray = cv2.cvtColor(imgobj, cv2.COLOR_BGR2GRAY)
+        ret, mask = cv2.threshold(img2gray, 100, 255, cv2.THRESH_BINARY)
+        mask = cv2.bitwise_not(mask)
+        kernel = numpy.ones((3, 3), numpy.uint8)
+        mask_inv = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
+        # self.cvshowimg(mask_inv)
+        imgobj = cv2.bitwise_and(bk_imgobj, bk_imgobj, mask=mask_inv)
+        self.getpointslist(imgobj)  # 只是为了将黑色背景置成白色, 并不是为了获得前景图的像素点
+        return imgobj
+        pass
+
+    def rmCurseline_by_Agglocluster(self, imgobj, discalc_mode='color', rmflag=True, n_clusters=7):
         """利用层次聚类算法对mask后的图片进行曲线和字母分离"""
         # pointslist, distlist, imgobj = self.rmobjbycolor()
         # 数据准备：计算前景点和距离列表
@@ -1271,7 +1284,8 @@ class rmcurlinebycolor():
         pointslist, distlist, imgobj = self.getdistlist_from_frontground(imgobj, discalc_mode=discalc_mode)
         bk_imgobj = copy.deepcopy(imgobj)
         # 层次聚类
-        model = AgglomerativeClustering(n_clusters=7, affinity='precomputed', linkage='average')
+        model = AgglomerativeClustering(n_clusters=n_clusters, affinity='precomputed', linkage='average')
+
         # dist_matrix = distlist
         dist_matrix = scidst.squareform(numpy.array(distlist))      # 根据距离列表构造距离矩阵
         labels = model.fit_predict(dist_matrix)
@@ -1284,8 +1298,13 @@ class rmcurlinebycolor():
         # 找出曲线所在的类（通过投影的方式），将该类的点全部置成背景色
         curselinepoints, biggestLabels, lable_pdict = self.getbiggestypepointset(pointslist, labels)
         # curselinepoints = self.freshkmeanscurselinepoints(cursepoints=curselinepoints, kmpointsets_dict=lable_pdict, bk_imgobj=imgobj)
-        self.rmcurselinepoints(imgobj, curselinepoints)
-        self.cvshowimg(imgobj)
+        if rmflag:
+            self.rmcurselinepoints(imgobj, curselinepoints)
+            self.cvshowimg(imgobj)
+            imgobj = self.redrawalphabets(imgobj, bk_imgobj)
+            self.cvshowimg(imgobj)
+            imgobj = self.corrosion(imgobj)  # origin_frontimg=bk_imgobj, mode=2
+            self.cvshowimg(imgobj)
         # all_labels = lable_pdict.keys()
         # all_labels.remove(biggestLabels[0])
         # other_label = all_labels[0]
@@ -1301,21 +1320,22 @@ class rmcurlinebycolor():
         # # imgobj = cv2.medianBlur(imgobj, 3)    # 中值滤波:效果最好，但是会连带删除部分字体
         # # imgobj = cv2.blur(imgobj, (3, 3))     # 平均:效果差
         #
-        img2gray = cv2.cvtColor(imgobj, cv2.COLOR_BGR2GRAY)
-        ret, mask = cv2.threshold(img2gray, 100, 255, cv2.THRESH_BINARY)
-        mask = cv2.bitwise_not(mask)
-        kernel = numpy.ones((3, 3), numpy.uint8)
-        mask_inv = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
-        # self.cvshowimg(mask_inv)
-        imgobj = cv2.bitwise_and(bk_imgobj, bk_imgobj, mask=mask_inv)
-        self.getpointslist(imgobj)  # 只是为了将黑色背景置成白色, 并不是为了获得前景图的像素点
-        self.cvshowimg(imgobj)
+        # img2gray = cv2.cvtColor(imgobj, cv2.COLOR_BGR2GRAY)
+        # ret, mask = cv2.threshold(img2gray, 100, 255, cv2.THRESH_BINARY)
+        # mask = cv2.bitwise_not(mask)
+        # kernel = numpy.ones((3, 3), numpy.uint8)
+        # mask_inv = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
+        # # self.cvshowimg(mask_inv)
+        # imgobj = cv2.bitwise_and(bk_imgobj, bk_imgobj, mask=mask_inv)
+        # self.getpointslist(imgobj)  # 只是为了将黑色背景置成白色, 并不是为了获得前景图的像素点
+        # self.cvshowimg(imgobj)
 
-        imgobj = self.corrosion(imgobj)  #  origin_frontimg=bk_imgobj, mode=2
-        self.cvshowimg(imgobj)
+
         # # cv2.namedWindow('res', 0)
         # # imgobj = cv2.medianBlur(imgobj, 3)    # 中值滤波:效果最好，但是会连带删除部分字体
         # self.cvshowimg(imgobj)
+
+        return curselinepoints, biggestLabels, lable_pdict
         pass
 
 
@@ -1461,6 +1481,28 @@ class rmcurlinebycolor():
         pass
 
 
+    def splitcaptcha(self, imgobj):
+        """ 基于颜色和空间距离聚类的验证码切割 """
+
+
+        # imgobj备份
+        bk_imgobj = copy.deepcopy(imgobj)
+
+        # 层次聚类, 返回boxlist
+        curselinepoints, biggestLabels, lable_pdict = self.rmCurseline_by_Agglocluster(imgobj, 's_c', False)
+
+        # 从bk_imgobj中截取对应的字符部分, 保存成img对象list
+        splitimglist = []
+        for k, v in lable_pdict:
+            print k
+            print v
+        # 待定:对上述对象list进行聚类去除曲线操作(这里需要用kmeans或层次聚类结合"核心类簇")
+        # 使用深度学习模型进行识别
+
+
+
+        pass
+
     def RecogText(self, imgobj):
         """ 识别字符"""
         Img_new = Image.fromarray(imgobj)
@@ -1478,7 +1520,7 @@ class rmcurlinebycolor():
             if not os.path.isdir(fname):
                 imgobj = cv2.imread(fname)
                 self.cvshowimg(imgobj)
-                self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='color')
+                self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='color', rmflag=True)
                 # self.rmCurseline_by_Agglocluster(imgobj, discalc_mode='space')
                 # self.rmCurseline_by_DBSCANCluster(imgobj=imgobj, discalc_mode='s_c')
                 # imgobj = self.rmCurseline_by_Kmeans(imgobj=imgobj, discalc_mode='color')
@@ -1491,7 +1533,7 @@ class rmcurlinebycolor():
                 # cv2.imwrite(os.path.join(abpath, f+"_rn.jpg"), imgobj)
         pass
 
-    def littlejoke(self, imgpath = "0802_1.jpg"):
+    def littlejoke(self, imgpath="0802_1.jpg"):
         imgobj = cv2.imread(imgpath)
         h, w, channel = imgobj.shape
         imgobj = imgobj[550:560, 300:450]
